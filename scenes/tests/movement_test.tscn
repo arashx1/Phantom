@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="1"]
+
+[sub_resource type="StandardMaterial3D" id="FloorMaterial"]
+albedo_color = Color(0.3, 0.38, 0.43, 1)
+
+[sub_resource type="BoxMesh" id="FloorMesh"]
+material = SubResource("FloorMaterial")
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="BoxShape3D" id="FloorShape"]
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="BoxMesh" id="StepMesh"]
+size = Vector3(2, 0.5, 2)
+
+[sub_resource type="BoxShape3D" id="StepShape"]
+size = Vector3(2, 0.5, 2)
+
+[sub_resource type="Environment" id="Environment"]
+background_mode = 1
+background_color = Color(0.12, 0.16, 0.22, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.8, 0.85, 1, 1)
+ambient_light_energy = 0.6
+
+[node name="MovementTest" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-55, -30, 0)
+shadow_enabled = true
+
+[node name="Floor" type="StaticBody3D" parent="."]
+position = Vector3(0, -0.25, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("FloorMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("FloorShape")
+
+[node name="Step" type="StaticBody3D" parent="."]
+position = Vector3(0, 0.25, -3)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Step"]
+mesh = SubResource("StepMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Step"]
+shape = SubResource("StepShape")
+
+[node name="Player" parent="." instance=ExtResource("1")]
+position = Vector3(0, 0.05, 4)
