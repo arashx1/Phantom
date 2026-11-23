@@ -1,2 +1,98 @@
 [gd_scene format=3]
-[node name="Castle" type="Node3D"]
+
+[ext_resource type="PackedScene" path="res://scenes/world/sections/castle_ghost.tscn" id="ghost"]
+[ext_resource type="PackedScene" path="res://scenes/world/sections/vault_gallery.tscn" id="vaultgallery"]
+[ext_resource type="Script" path="res://scripts/gravity/castle_gravity.gd" id="gravity"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/world/sections/starting_balcony.tscn" id="2_balcony"]
+
+[ext_resource type="PackedScene" path="res://scenes/world/sections/lantern_district.tscn" id="district"]
+
+[ext_resource type="PackedScene" path="res://scenes/world/sections/castle_shell.scn" id="shell"]
+
+[ext_resource type="Shader" path="res://scenes/world/sections/chasm_sky.gdshader" id="chasm"]
+
+[sub_resource type="ShaderMaterial" id="CourtyardAir"]
+shader = ExtResource("chasm")
+
+[sub_resource type="Sky" id="CourtyardSky"]
+sky_material = SubResource("CourtyardAir")
+
+[sub_resource type="Environment" id="Environment"]
+sky = SubResource("CourtyardSky")
+background_mode = 2
+background_color = Color(0.19,0.35,0.43,1)
+ambient_light_source = 2
+ambient_light_color = Color(0.8, 0.85, 1, 1)
+ambient_light_energy = 0.33
+adjustment_enabled = true
+adjustment_contrast = 1.08
+adjustment_saturation = 1.04
+fog_enabled = true
+fog_light_color = Color(0.16,0.32,0.43,1)
+fog_light_energy = 0.86
+fog_sky_affect = 0.15
+fog_density = 0.014
+
+[sub_resource type="StandardMaterial3D" id="FloorMaterial"]
+albedo_color = Color(0.3, 0.38, 0.43, 1)
+
+[sub_resource type="BoxMesh" id="FloorMesh"]
+material = SubResource("FloorMaterial")
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="BoxShape3D" id="FloorShape"]
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="BoxMesh" id="StepMesh"]
+size = Vector3(2, 0.5, 2)
+
+[sub_resource type="BoxShape3D" id="StepShape"]
+size = Vector3(2, 0.5, 2)
+
+[node name="Castle" type="Node3D" unique_id=998982428]
+script = ExtResource("gravity")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=770300574]
+environment = SubResource("Environment")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1907446]
+transform = Transform3D(0.8660254, 0.40957603, -0.28678823, 0, 0.57357645, 0.81915206, 0.5, -0.7094065, 0.49673176, 0, 0, 0)
+shadow_enabled = true
+light_energy = 0.27
+
+[node name="Player" parent="." unique_id=1654752896 instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 12)
+
+[node name="StartingBalcony" parent="." instance=ExtResource("2_balcony")]
+position = Vector3(0, -0.15, 0)
+
+
+
+
+
+[node name="LanternDistrict" parent="." instance=ExtResource("district")]
+
+[node name="CastleShell" parent="." instance=ExtResource("shell")]
+
+[node name="VaultGallery" parent="." instance=ExtResource("vaultgallery")]
+
+[node name="BalconyWisp" parent="." instance=ExtResource("ghost")]
+position = Vector3(0, 1.6, -9)
+patrol_offset = Vector3(0, 0, -12)
+
+[node name="ScribeWisp" parent="." instance=ExtResource("ghost")]
+position = Vector3(21, 1.6, 32)
+patrol_offset = Vector3(0, 0, -5)
+
+[node name="GateWisp" parent="." instance=ExtResource("ghost")]
+position = Vector3(29, 1.6, -24)
+patrol_offset = Vector3(-11, 0, 1)
+
+[node name="WesternWisp" parent="." instance=ExtResource("ghost")]
+position = Vector3(-29, 6.6, 4)
+patrol_offset = Vector3(1, -1, -15)
+
+[node name="HighWisp" parent="." instance=ExtResource("ghost")]
+position = Vector3(3, 15, -40)
+patrol_offset = Vector3(8, 1, 5)

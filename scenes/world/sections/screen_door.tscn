@@ -1,0 +1,105 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/screen_door.gd" id="script"]
+[ext_resource type="ArrayMesh" path="res://scenes/world/sections/sliding_screen.res" id="leaf"]
+
+[ext_resource type="PackedScene" path="res://scenes/world/sections/courier_room.tscn" id="room"]
+
+[sub_resource type="Shader" id="LampShader"]
+code = "shader_type spatial;
+render_mode unshaded;
+varying float phase;
+void vertex() { phase = dot(MODEL_MATRIX[3].xyz,vec3(0.73,1.21,0.37)); }
+void fragment() {
+ float flame = 0.88 + 0.08*sin(2.4*TIME+phase) + 0.04*sin(5.7*TIME+phase);
+ ALBEDO = vec3(1.0,0.61,0.21)*flame;
+}"
+
+[sub_resource type="ShaderMaterial" id="Lamp"]
+shader = SubResource("LampShader")
+
+[sub_resource type="BoxMesh" id="Glass"]
+size = Vector3(0.20,0.32,0.18)
+material = SubResource("Lamp")
+
+[sub_resource type="Shader" id="SilkShader"]
+code = "shader_type spatial;
+render_mode cull_disabled;
+varying float fold;
+void vertex(){
+ float phase=dot(MODEL_MATRIX[3].xyz,vec3(0.13,0.35,0.51));
+ fold=sin(UV.x*36.0 + phase + TIME*1.7);
+ VERTEX.z += UV.y*UV.y*(0.06*fold+0.04*sin(TIME*1.15+phase));
+}
+void fragment(){
+ vec2 panel=vec2(fract(UV.x*3.0),UV.y);
+ if (min(panel.x,1.0-panel.x)<0.025 && UV.y>0.08){discard;}
+ float diamond=abs(panel.x-0.5)*1.5+abs(panel.y-0.47);
+ float ink=max(1.0-smoothstep(0.018,0.04,abs(diamond-0.22)),step(0.91,UV.y));
+ ALBEDO=mix(vec3(0.028,0.105,0.095),vec3(0.58,0.39,0.16),ink)*(0.92+0.08*fold);
+ ROUGHNESS=0.92;
+}"
+
+[sub_resource type="ShaderMaterial" id="Silk"]
+shader = SubResource("SilkShader")
+
+[sub_resource type="QuadMesh" id="Valance"]
+size = Vector2(3.0,0.51)
+material = SubResource("Silk")
+
+[sub_resource type="BoxShape3D" id="Panel"]
+size = Vector3(1.46,3.55,0.18)
+
+[sub_resource type="BoxShape3D" id="Approach"]
+size = Vector3(3.8,4.4,6.8)
+
+[node name="ScreenDoor" type="Node3D" groups=["castle_doors"]]
+script = ExtResource("script")
+
+[node name="Left" type="AnimatableBody3D" parent="."]
+position = Vector3(-0.73,1.775,0)
+sync_to_physics = false
+
+[node name="Face" type="MeshInstance3D" parent="Left"]
+mesh = ExtResource("leaf")
+
+[node name="Solid" type="CollisionShape3D" parent="Left"]
+shape = SubResource("Panel")
+
+[node name="Right" type="AnimatableBody3D" parent="."]
+position = Vector3(0.73,1.775,0)
+sync_to_physics = false
+
+[node name="Face" type="MeshInstance3D" parent="Right"]
+rotation_degrees = Vector3(0,180,0)
+mesh = ExtResource("leaf")
+
+[node name="Solid" type="CollisionShape3D" parent="Right"]
+shape = SubResource("Panel")
+
+[node name="Approach" type="Area3D" parent="."]
+position = Vector3(0,1.7,0)
+collision_layer = 0
+monitorable = false
+
+[node name="Reach" type="CollisionShape3D" parent="Approach"]
+shape = SubResource("Approach")
+
+[node name="PorchLight" type="MeshInstance3D" parent="."]
+position = Vector3(1.56,3.34,0.34)
+mesh = SubResource("Glass")
+
+[node name="CrestedValance" type="MeshInstance3D" parent="."]
+mesh = SubResource("Valance")
+position = Vector3(0,3.55,0.27)
+
+[node name="Interior" parent="." instance=ExtResource("room")]
+
+[node name="LanternLight" type="OmniLight3D" parent="."]
+position = Vector3(1.5, 3.05, 0.72)
+light_color = Color(1, 0.65, 0.33, 1)
+light_energy = 1.65
+omni_range = 5.8
+distance_fade_enabled = true
+distance_fade_begin = 17.0
+distance_fade_length = 7.0

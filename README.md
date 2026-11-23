@@ -1,0 +1,2 @@
+So in this basically 
+it is a game where we there is like infinity castlea nd we ahev to basically be saved from a ghost who is behind us a monster who is creepy and you have to be like changing the things

@@ -1,0 +1,122 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="Wood"]
+albedo_color = Color(0.25, 0.12, 0.065, 1)
+
+[sub_resource type="StandardMaterial3D" id="Trim"]
+albedo_color = Color(0.61, 0.37, 0.14, 1)
+
+[sub_resource type="StandardMaterial3D" id="Cloth"]
+albedo_color = Color(0.09, 0.27, 0.23, 1)
+
+[sub_resource type="StandardMaterial3D" id="Paper"]
+albedo_color = Color(0.78, 0.64, 0.41, 1)
+
+[sub_resource type="StandardMaterial3D" id="Ink"]
+albedo_color = Color(0.18, 0.1, 0.085, 1)
+
+[sub_resource type="BoxMesh" id="SleepingDaisMesh"]
+size = Vector3(1.65, 0.4, 2.8)
+material = SubResource("Wood")
+
+[sub_resource type="BoxShape3D" id="SleepingDaisShape"]
+size = Vector3(1.65, 0.4, 2.8)
+
+[sub_resource type="BoxMesh" id="QuiltMesh"]
+size = Vector3(1.59, 0.12, 2.22)
+material = SubResource("Cloth")
+
+[sub_resource type="BoxMesh" id="PillowMesh"]
+size = Vector3(0.95, 0.19, 0.45)
+material = SubResource("Paper")
+
+[sub_resource type="BoxMesh" id="WritingChestMesh"]
+size = Vector3(1.75, 0.88, 0.95)
+material = SubResource("Wood")
+
+[sub_resource type="BoxShape3D" id="WritingChestShape"]
+size = Vector3(1.75, 0.88, 0.95)
+
+[sub_resource type="BoxMesh" id="DeskLipMesh"]
+size = Vector3(1.85, 0.08, 1.04)
+material = SubResource("Trim")
+
+[sub_resource type="BoxMesh" id="LedgerMesh"]
+size = Vector3(0.63, 0.1, 0.48)
+material = SubResource("Ink")
+
+[sub_resource type="BoxMesh" id="PagesMesh"]
+size = Vector3(0.6, 0.023, 0.45)
+material = SubResource("Paper")
+
+[sub_resource type="BoxMesh" id="Pull0Mesh"]
+size = Vector3(0.16, 0.08, 0.06)
+material = SubResource("Trim")
+
+[sub_resource type="BoxMesh" id="Pull1Mesh"]
+size = Vector3(0.16, 0.08, 0.06)
+material = SubResource("Trim")
+
+[node name="RoomInterior" type="StaticBody3D"]
+
+[node name="SleepingDais" type="MeshInstance3D" parent="."]
+position = Vector3(-2.52, 0.2, -3.8)
+mesh = SubResource("SleepingDaisMesh")
+visibility_range_end = 42
+visibility_range_end_margin = 4
+
+[node name="SleepingDaisSolid" type="CollisionShape3D" parent="."]
+position = Vector3(-2.52, 0.2, -3.8)
+shape = SubResource("SleepingDaisShape")
+
+[node name="Quilt" type="MeshInstance3D" parent="."]
+position = Vector3(-2.52, 0.46, -3.55)
+mesh = SubResource("QuiltMesh")
+visibility_range_end = 42
+visibility_range_end_margin = 4
+
+[node name="Pillow" type="MeshInstance3D" parent="."]
+position = Vector3(-2.52, 0.5, -4.84)
+mesh = SubResource("PillowMesh")
+visibility_range_end = 42
+visibility_range_end_margin = 4
+
+[node name="WritingChest" type="MeshInstance3D" parent="."]
+position = Vector3(2.42, 0.44, -4.6)
+mesh = SubResource("WritingChestMesh")
+visibility_range_end = 42
+visibility_range_end_margin = 4
+
+[node name="WritingChestSolid" type="CollisionShape3D" parent="."]
+position = Vector3(2.42, 0.44, -4.6)
+shape = SubResource("WritingChestShape")
+
+[node name="DeskLip" type="MeshInstance3D" parent="."]
+position = Vector3(2.42, 0.92, -4.6)
+mesh = SubResource("DeskLipMesh")
+visibility_range_end = 42
+visibility_range_end_margin = 4
+
+[node name="Ledger" type="MeshInstance3D" parent="."]
+position = Vector3(2.22, 1, -4.58)
+mesh = SubResource("LedgerMesh")
+visibility_range_end = 42
+visibility_range_end_margin = 4
+
+[node name="Pages" type="MeshInstance3D" parent="."]
+position = Vector3(2.22, 1.06, -4.58)
+mesh = SubResource("PagesMesh")
+visibility_range_end = 42
+visibility_range_end_margin = 4
+
+[node name="Pull0" type="MeshInstance3D" parent="."]
+position = Vector3(2.03, 0.66, -4.1)
+mesh = SubResource("Pull0Mesh")
+visibility_range_end = 42
+visibility_range_end_margin = 4
+
+[node name="Pull1" type="MeshInstance3D" parent="."]
+position = Vector3(2.81, 0.66, -4.1)
+mesh = SubResource("Pull1Mesh")
+visibility_range_end = 42
+visibility_range_end_margin = 4

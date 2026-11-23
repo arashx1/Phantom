@@ -1,0 +1,2085 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://scenes/world/sections/lantern_house.res" id="house"]
+[ext_resource type="ArrayMesh" path="res://scenes/world/sections/gallery_span.res" id="span"]
+
+[sub_resource type="StandardMaterial3D" id="Stone0"]
+albedo_color = Color(0.12, 0.18, 0.21, 1)
+
+[sub_resource type="PrismMesh" id="Spire0"]
+size = Vector3(1,1,1)
+left_to_right = 0.6
+material = SubResource("Stone0")
+
+[sub_resource type="StandardMaterial3D" id="Stone1"]
+albedo_color = Color(0.15, 0.21, 0.24, 1)
+
+[sub_resource type="PrismMesh" id="Spire1"]
+size = Vector3(1,1,1)
+left_to_right = 0.6
+material = SubResource("Stone1")
+
+[sub_resource type="StandardMaterial3D" id="Stone2"]
+albedo_color = Color(0.18, 0.24, 0.26, 1)
+
+[sub_resource type="PrismMesh" id="Spire2"]
+size = Vector3(1,1,1)
+left_to_right = 0.6
+material = SubResource("Stone2")
+
+[sub_resource type="BoxMesh" id="Landing"]
+size = Vector3(8,0.4,8)
+material = SubResource("Stone1")
+
+[sub_resource type="StandardMaterial3D" id="BeaconIron"]
+albedo_color = Color(0.16,0.13,0.095,1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="BeaconSilk"]
+albedo_color = Color(0.12,0.26,0.26,1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="BeaconPaper"]
+albedo_color = Color(1.0,0.68,0.30,1)
+roughness = 0.8
+emission_enabled = true
+emission = Color(1.0,0.68,0.30,1)
+emission_energy_multiplier = 1.6
+
+[sub_resource type="BoxMesh" id="Standard"]
+size = Vector3(0.2, 6.7, 0.2)
+material = SubResource("BeaconIron")
+
+[sub_resource type="BoxMesh" id="SilkA"]
+size = Vector3(1.08, 2.9, 0.055)
+material = SubResource("BeaconSilk")
+
+[sub_resource type="BoxMesh" id="SilkB"]
+size = Vector3(0.4, 2.25, 0.05)
+material = SubResource("BeaconSilk")
+
+[sub_resource type="BoxMesh" id="LightBox"]
+size = Vector3(0.68, 0.92, 0.68)
+material = SubResource("BeaconPaper")
+
+[sub_resource type="BoxMesh" id="LampLid0"]
+size = Vector3(0.96, 0.13, 0.96)
+material = SubResource("BeaconIron")
+
+[sub_resource type="BoxMesh" id="LampLid1"]
+size = Vector3(0.96, 0.13, 0.96)
+material = SubResource("BeaconIron")
+
+[sub_resource type="BoxMesh" id="LampStile00"]
+size = Vector3(0.08, 1.08, 0.08)
+material = SubResource("BeaconIron")
+
+[sub_resource type="BoxMesh" id="LampStile01"]
+size = Vector3(0.08, 1.08, 0.08)
+material = SubResource("BeaconIron")
+
+[sub_resource type="BoxMesh" id="LampStile10"]
+size = Vector3(0.08, 1.08, 0.08)
+material = SubResource("BeaconIron")
+
+[sub_resource type="BoxMesh" id="LampStile11"]
+size = Vector3(0.08, 1.08, 0.08)
+material = SubResource("BeaconIron")
+
+[sub_resource type="BoxShape3D" id="FloorShape"]
+size = Vector3(12, 0.65, 9)
+
+[sub_resource type="BoxShape3D" id="BackShape"]
+size = Vector3(10.48, 5.1, 0.23)
+
+[sub_resource type="BoxShape3D" id="HeaderShape"]
+size = Vector3(2.94, 1.54, 0.23)
+
+[sub_resource type="BoxShape3D" id="RoofDeckShape"]
+size = Vector3(10.48, 0.25, 7.3)
+
+[sub_resource type="BoxShape3D" id="SideLShape"]
+size = Vector3(0.23, 5.1, 7.1)
+
+[sub_resource type="BoxShape3D" id="JambLShape"]
+size = Vector3(3.68, 5.1, 0.23)
+
+[sub_resource type="BoxShape3D" id="SideRShape"]
+size = Vector3(0.23, 5.1, 7.1)
+
+[sub_resource type="BoxShape3D" id="JambRShape"]
+size = Vector3(3.68, 5.1, 0.23)
+
+[sub_resource type="BoxShape3D" id="LandingDeckShape"]
+size = Vector3(8, 0.4, 8)
+
+[sub_resource type="BoxShape3D" id="Tread0Shape"]
+size = Vector3(6, 0.4, 2.55)
+
+[sub_resource type="BoxShape3D" id="RailL0Shape"]
+size = Vector3(6, 1.23, 0.14)
+
+[sub_resource type="BoxShape3D" id="RailR0Shape"]
+size = Vector3(6, 1.23, 0.14)
+
+[sub_resource type="BoxShape3D" id="Tread2Shape"]
+size = Vector3(3, 0.4, 2.55)
+
+[sub_resource type="BoxShape3D" id="RailL2Shape"]
+size = Vector3(3, 1.23, 0.14)
+
+[sub_resource type="BoxShape3D" id="RailR2Shape"]
+size = Vector3(3, 1.23, 0.14)
+
+[sub_resource type="BoxShape3D" id="Tread4Shape"]
+size = Vector3(5.9834265182592725, 0.4, 2.55)
+
+[sub_resource type="BoxShape3D" id="RailL4Shape"]
+size = Vector3(5.9834265182592725, 1.23, 0.14)
+
+[sub_resource type="BoxShape3D" id="RailR4Shape"]
+size = Vector3(5.9834265182592725, 1.23, 0.14)
+
+[node name="LanternDistrict" type="Node3D"]
+
+[node name="BellHouse" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-4, 0, -32)
+rotation_degrees = Vector3(0, 5, 0)
+scale = Vector3(1.1, 1.1, 1.1)
+
+[node name="Gatehouse" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(29, 0, -33)
+rotation_degrees = Vector3(0, -7, 0)
+scale = Vector3(1.35, 1.35, 1.35)
+
+[node name="Belfry" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(29, 11.2, -33)
+rotation_degrees = Vector3(0, -7, 0)
+scale = Vector3(0.75, 0.75, 0.75)
+
+[node name="BellWalk" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(-1.0, 0.0, -26.5)
+rotation_degrees = Vector3(0, 123.69006752597979, 0.0)
+scale = Vector3(0.22534695471649932, 1, 1)
+
+[node name="GateWalk" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(29.5, 0.0, -26.5)
+rotation_degrees = Vector3(0, 108.43494882292202, 0.0)
+scale = Vector3(0.19764235376052372, 1, 1)
+
+[node name="HighCrossing" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(12.0, 0.0, -32.5)
+rotation_degrees = Vector3(0, 2.602562202499806, 0.0)
+scale = Vector3(1.3764197215965774, 1, 1)
+
+[node name="TeaHouse" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(12, -8, -42)
+rotation_degrees = Vector3(0, -18, -13)
+scale = Vector3(0.92, 0.92, 0.92)
+
+[node name="ClockPavilion" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-17, 10, -49)
+rotation_degrees = Vector3(0, 20, 16)
+scale = Vector3(1.25, 1.25, 1.25)
+
+[node name="HangingArchive" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(21, 20, -30)
+rotation_degrees = Vector3(0, 21, 172)
+scale = Vector3(1.05, 1.05, 1.05)
+
+[node name="WallHouse" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(28, 7, -12)
+rotation_degrees = Vector3(0, -10, -69)
+scale = Vector3(0.86, 0.86, 0.86)
+
+[node name="WestWatch" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-26, -14, -58)
+rotation_degrees = Vector3(0, 27, -18)
+scale = Vector3(1.25, 1.25, 1.25)
+
+[node name="FarGate" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(11, 2, -68)
+rotation_degrees = Vector3(0, -12, 0)
+scale = Vector3(1.4, 1.4, 1.4)
+
+[node name="FarCupola" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(11, 11, -68)
+rotation_degrees = Vector3(0, -12, 0)
+scale = Vector3(0.78, 0.78, 0.78)
+
+[node name="TeaWalk" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(12.0, -3.0, -54.0)
+rotation_degrees = Vector3(0, 96.3401917459099, 28.905619441228147)
+scale = Vector3(1.2930100540985752, 1, 1)
+
+[node name="ArchiveWalk" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(3.0, 13.5, -40.5)
+rotation_degrees = Vector3(0, -31.26373169437743, 12.062496571856872)
+scale = Vector3(2.093516778055528, 1, 1)
+
+[node name="WestWalk" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(-8.0, -11.0, -48.5)
+rotation_degrees = Vector3(0, -20.136303428248137, 10.634890301434094)
+scale = Vector3(2.0319710258761075, 1, 1)
+
+[node name="DistantKeep0" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-38.51997348475051, -7.086584504632157, -137.1323066309407)
+rotation_degrees = Vector3(0, 27, -17)
+scale = Vector3(1.082861556425558, 1.082861556425558, 1.082861556425558)
+
+[node name="RoofTower0" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-38.51997348475051, 0.4934463903467492, -137.1323066309407)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(0.7146886272408682, 0.7146886272408682, 0.7146886272408682)
+
+[node name="BackGallery0" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(-29.01997348475051, -6.586584504632157, -140.1323066309407)
+rotation_degrees = Vector3(0, 17.52556837372287, 2.873181950548265)
+scale = Vector3(1.2468710839537502, 1, 1)
+
+[node name="DistantKeep1" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-27.97199562157732, -10.565271867781476, -174.11367135842994)
+rotation_degrees = Vector3(0, -25, 0)
+scale = Vector3(0.7822402705246534, 0.7822402705246534, 0.7822402705246534)
+
+[node name="DistantKeep2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-61.410273424619064, -4.326275015906262, -86.27055614245502)
+rotation_degrees = Vector3(0, 2, 80)
+scale = Vector3(1.2738865079625517, 1.2738865079625517, 1.2738865079625517)
+
+[node name="DistantKeep3" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-18.798149229495195, -1.1186792586063703, -155.41452526516758)
+rotation_degrees = Vector3(0, -8, 0)
+scale = Vector3(1.1756877404473558, 1.1756877404473558, 1.1756877404473558)
+
+[node name="DistantKeep4" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(15.845864543940706, -17.008195053811484, -109.91043942926729)
+rotation_degrees = Vector3(0, 35, 0)
+scale = Vector3(1.081398938032411, 1.081398938032411, 1.081398938032411)
+
+[node name="RoofTower4" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(15.845864543940706, -9.438402487584607, -109.91043942926729)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(0.7137232991013912, 0.7137232991013912, 0.7137232991013912)
+
+[node name="BackGallery4" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(25.345864543940706, -16.508195053811484, -112.91043942926729)
+rotation_degrees = Vector3(0, 17.52556837372287, 2.873181950548265)
+scale = Vector3(1.2468710839537502, 1, 1)
+
+[node name="DistantKeep5" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-67.95901011646981, 38.58043038560325, -98.1407303715561)
+rotation_degrees = Vector3(0, 4, 0)
+scale = Vector3(0.7931621892598987, 0.7931621892598987, 0.7931621892598987)
+
+[node name="DistantKeep6" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-35.66195614359131, 1.4727065375864115, -141.56002428912336)
+rotation_degrees = Vector3(0, -9, 180)
+scale = Vector3(0.9976644506400282, 0.9976644506400282, 0.9976644506400282)
+
+[node name="DistantKeep7" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(89.86265321868152, 21.673719159546664, -157.23737839052177)
+rotation_degrees = Vector3(0, 7, 180)
+scale = Vector3(1.4866902082537161, 1.4866902082537161, 1.4866902082537161)
+
+[node name="DistantKeep8" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(96.81128721269039, 28.186234926129217, -94.48077533819593)
+rotation_degrees = Vector3(0, -5, 10)
+scale = Vector3(1.5205666192021225, 1.5205666192021225, 1.5205666192021225)
+
+[node name="RoofTower8" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(96.81128721269039, 38.83020126054407, -94.48077533819593)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(1.0035739686734009, 1.0035739686734009, 1.0035739686734009)
+
+[node name="BackGallery8" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(106.31128721269039, 28.686234926129217, -97.48077533819593)
+rotation_degrees = Vector3(0, 17.52556837372287, 2.873181950548265)
+scale = Vector3(1.2468710839537502, 1, 1)
+
+[node name="DistantKeep9" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(8.497941397128699, -21.091542141802037, -174.18956881780272)
+rotation_degrees = Vector3(0, -5, 180)
+scale = Vector3(1.4928844661395937, 1.4928844661395937, 1.4928844661395937)
+
+[node name="DistantKeep10" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(5.043757616727106, -40.7203687719009, -157.01098327634662)
+rotation_degrees = Vector3(0, 10, -17)
+scale = Vector3(1.5509466115732573, 1.5509466115732573, 1.5509466115732573)
+
+[node name="DistantKeep11" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-64.1839345528981, 39.65047801469461, -120.66559095226367)
+rotation_degrees = Vector3(0, -37, 0)
+scale = Vector3(0.9002501390669732, 0.9002501390669732, 0.9002501390669732)
+
+[node name="DistantKeep12" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(12.218083017027311, -43.805186753080264, -101.58844855919735)
+rotation_degrees = Vector3(0, 31, -17)
+scale = Vector3(1.009804932032233, 1.009804932032233, 1.009804932032233)
+
+[node name="RoofTower12" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(12.218083017027311, -36.736552228854634, -101.58844855919735)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(0.6664712551412739, 0.6664712551412739, 0.6664712551412739)
+
+[node name="BackGallery12" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(21.71808301702731, -43.305186753080264, -104.58844855919735)
+rotation_degrees = Vector3(0, 17.52556837372287, 2.873181950548265)
+scale = Vector3(1.2468710839537502, 1, 1)
+
+[node name="DistantKeep13" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(73.40733936791395, 38.92951258390163, -136.6167726313325)
+rotation_degrees = Vector3(0, -5, 180)
+scale = Vector3(0.7911907435307137, 0.7911907435307137, 0.7911907435307137)
+
+[node name="DistantKeep14" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(28.24493657358937, 38.03997029147439, -88.35855595737344)
+rotation_degrees = Vector3(0, 2, 0)
+scale = Vector3(1.6195567600853344, 1.6195567600853344, 1.6195567600853344)
+
+[node name="DistantKeep15" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(19.99940844763131, -9.267893825576387, -157.92035099963388)
+rotation_degrees = Vector3(0, -15, 0)
+scale = Vector3(1.684566418980504, 1.684566418980504, 1.684566418980504)
+
+[node name="DistantKeep16" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-7.853831950941256, -42.25664545201267, -159.12573696562464)
+rotation_degrees = Vector3(0, 34, 10)
+scale = Vector3(1.4465943300574806, 1.4465943300574806, 1.4465943300574806)
+
+[node name="RoofTower16" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-7.853831950941256, -32.13048514161031, -159.12573696562464)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(0.9547522578379373, 0.9547522578379373, 0.9547522578379373)
+
+[node name="BackGallery16" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(1.646168049058744, -41.75664545201267, -162.12573696562464)
+rotation_degrees = Vector3(0, 17.52556837372287, 2.873181950548265)
+scale = Vector3(1.2468710839537502, 1, 1)
+
+[node name="DistantKeep17" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(7.124297633869702, -8.051854215229021, -167.73191074764586)
+rotation_degrees = Vector3(0, 15, 0)
+scale = Vector3(1.373467845879743, 1.373467845879743, 1.373467845879743)
+
+[node name="DistantKeep18" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-33.9953720168202, -38.09659677045985, -152.8964606302828)
+rotation_degrees = Vector3(0, 24, 0)
+scale = Vector3(1.4547964957427872, 1.4547964957427872, 1.4547964957427872)
+
+[node name="DistantKeep19" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(73.60175565590743, 0.2992133416646183, -100.88949964943522)
+rotation_degrees = Vector3(0, -37, 180)
+scale = Vector3(1.2897892111040412, 1.2897892111040412, 1.2897892111040412)
+
+[node name="DistantKeep20" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-110.80019335797587, 39.26383965314167, -98.60157210153427)
+rotation_degrees = Vector3(0, -33, 80)
+scale = Vector3(1.0780420550509797, 1.0780420550509797, 1.0780420550509797)
+
+[node name="RoofTower20" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-110.80019335797587, 46.81013403849853, -98.60157210153427)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(0.7115077563336466, 0.7115077563336466, 0.7115077563336466)
+
+[node name="BackGallery20" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(-101.30019335797587, 39.76383965314167, -101.60157210153427)
+rotation_degrees = Vector3(0, 17.52556837372287, 2.873181950548265)
+scale = Vector3(1.2468710839537502, 1, 1)
+
+[node name="DistantKeep21" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-69.02967166019107, -39.80834928751597, -172.18266168997238)
+rotation_degrees = Vector3(0, -32, 80)
+scale = Vector3(0.8432734078508958, 0.8432734078508958, 0.8432734078508958)
+
+[node name="DistantKeep22" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-50.006964488546046, 20.667595579876334, -119.79809298242853)
+rotation_degrees = Vector3(0, 36, 10)
+scale = Vector3(0.9021325038144927, 0.9021325038144927, 0.9021325038144927)
+
+[node name="DistantKeep23" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(30.936701470303205, -44.01038658072838, -83.98387141354907)
+rotation_degrees = Vector3(0, 33, 0)
+scale = Vector3(1.2217787361305414, 1.2217787361305414, 1.2217787361305414)
+
+[node name="DistantKeep24" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(117.8414916231838, -16.979476081176074, -138.71960367503502)
+rotation_degrees = Vector3(0, 24, 80)
+scale = Vector3(1.0446435525302709, 1.0446435525302709, 1.0446435525302709)
+
+[node name="RoofTower24" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(117.8414916231838, -9.666971213464178, -138.71960367503502)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(0.6894647446699788, 0.6894647446699788, 0.6894647446699788)
+
+[node name="BackGallery24" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(127.3414916231838, -16.479476081176074, -141.71960367503502)
+rotation_degrees = Vector3(0, 17.52556837372287, 2.873181950548265)
+scale = Vector3(1.2468710839537502, 1, 1)
+
+[node name="DistantKeep25" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-93.69046079725452, -40.410426643295295, -85.7710738163579)
+rotation_degrees = Vector3(0, 20, 0)
+scale = Vector3(1.1935887872709, 1.1935887872709, 1.1935887872709)
+
+[node name="DistantKeep26" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-17.00843952212317, 23.57801208395911, -124.42666757403398)
+rotation_degrees = Vector3(0, -2, 180)
+scale = Vector3(0.8222200172746117, 0.8222200172746117, 0.8222200172746117)
+
+[node name="DistantKeep27" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(8.452587415446146, -25.733150341609768, -167.1577898210254)
+rotation_degrees = Vector3(0, -17, -17)
+scale = Vector3(1.50847638257774, 1.50847638257774, 1.50847638257774)
+
+[node name="DistantKeep28" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-124.12554790967705, -6.512457124665055, -168.67234781578958)
+rotation_degrees = Vector3(0, -3, 180)
+scale = Vector3(1.192896769185423, 1.192896769185423, 1.192896769185423)
+
+[node name="RoofTower28" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-124.12554790967705, 1.837820259632906, -168.67234781578958)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(0.7873118676623793, 0.7873118676623793, 0.7873118676623793)
+
+[node name="BackGallery28" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(-114.62554790967705, -6.012457124665055, -171.67234781578958)
+rotation_degrees = Vector3(0, 17.52556837372287, 2.873181950548265)
+scale = Vector3(1.2468710839537502, 1, 1)
+
+[node name="DistantKeep29" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(11.679316895934477, 38.95283887799542, -111.9484674075869)
+rotation_degrees = Vector3(0, -14, 180)
+scale = Vector3(1.6652724530293552, 1.6652724530293552, 1.6652724530293552)
+
+[node name="DistantKeep30" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-55.36578110880846, 1.683048343551313, -104.67856767766288)
+rotation_degrees = Vector3(0, -25, 80)
+scale = Vector3(1.120681185456798, 1.120681185456798, 1.120681185456798)
+
+[node name="DistantKeep31" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(54.35590292065626, 1.1785117439100787, -121.10287475328698)
+rotation_degrees = Vector3(0, 36, 10)
+scale = Vector3(1.5033392889815929, 1.5033392889815929, 1.5033392889815929)
+
+[node name="DistantKeep32" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-22.855092434607727, 36.93196711899424, -113.13338617882667)
+rotation_degrees = Vector3(0, -27, 0)
+scale = Vector3(1.448421161879351, 1.448421161879351, 1.448421161879351)
+
+[node name="RoofTower32" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-22.855092434607727, 47.070915252149696, -113.13338617882667)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(0.9559579668403717, 0.9559579668403717, 0.9559579668403717)
+
+[node name="BackGallery32" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(-13.355092434607727, 37.43196711899424, -116.13338617882667)
+rotation_degrees = Vector3(0, 17.52556837372287, 2.873181950548265)
+scale = Vector3(1.2468710839537502, 1, 1)
+
+[node name="DistantKeep33" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(3.2218671617810912, 42.3753370712907, -149.02525242803577)
+rotation_degrees = Vector3(0, 8, 0)
+scale = Vector3(1.266652152136474, 1.266652152136474, 1.266652152136474)
+
+[node name="DistantKeep34" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(82.21166165628995, 9.620115858715266, -169.1478582679549)
+rotation_degrees = Vector3(0, -32, 10)
+scale = Vector3(1.1605590829171055, 1.1605590829171055, 1.1605590829171055)
+
+[node name="DistantKeep35" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(21.536740399435388, -13.206115404070715, -172.6347562749484)
+rotation_degrees = Vector3(0, -6, 0)
+scale = Vector3(1.5186762411284356, 1.5186762411284356, 1.5186762411284356)
+
+[node name="DistantKeep36" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-54.67129860524901, 13.471011879119416, -133.82486315928918)
+rotation_degrees = Vector3(0, 0, -17)
+scale = Vector3(1.5286994124918833, 1.5286994124918833, 1.5286994124918833)
+
+[node name="RoofTower36" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-54.67129860524901, 24.171907766562597, -133.82486315928918)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(1.008941612244643, 1.008941612244643, 1.008941612244643)
+
+[node name="BackGallery36" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(-45.17129860524901, 13.971011879119416, -136.82486315928918)
+rotation_degrees = Vector3(0, 17.52556837372287, 2.873181950548265)
+scale = Vector3(1.2468710839537502, 1, 1)
+
+[node name="DistantKeep37" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(113.11159403385776, 33.615456318668265, -136.15706454099754)
+rotation_degrees = Vector3(0, 36, -17)
+scale = Vector3(0.8114848238673809, 0.8114848238673809, 0.8114848238673809)
+
+[node name="DistantKeep38" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-129.84000483783964, -6.717136871053803, -137.8394249954343)
+rotation_degrees = Vector3(0, -6, 10)
+scale = Vector3(1.1716053081841444, 1.1716053081841444, 1.1716053081841444)
+
+[node name="DistantKeep39" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-103.34809736311803, -35.19495941038667, -166.23441398387575)
+rotation_degrees = Vector3(0, 16, 0)
+scale = Vector3(1.0764569065546779, 1.0764569065546779, 1.0764569065546779)
+
+[node name="Basalt0" type="MeshInstance3D" parent="."]
+position = Vector3(-165.82539588468833,-33.08889521579059,-205.8377435038903)
+rotation_degrees = Vector3(0,35,-5)
+scale = Vector3(7.8169093138443015,74.49861530855198,9.980572352581824)
+mesh = SubResource("Spire0")
+
+[node name="Basalt1" type="MeshInstance3D" parent="."]
+position = Vector3(-122.53884397360375,4.9908143967943275,-216.30396642295602)
+rotation_degrees = Vector3(0,59,6)
+scale = Vector3(7.734624517806848,49.31809464359034,6.434502959060712)
+mesh = SubResource("Spire1")
+
+[node name="Basalt2" type="MeshInstance3D" parent="."]
+position = Vector3(31.64769643290245,9.944849085213392,-205.11332769270112)
+rotation_degrees = Vector3(0,87,-2)
+scale = Vector3(4.853349186277275,100.91735341985623,7.743577603655033)
+mesh = SubResource("Spire2")
+
+[node name="Basalt3" type="MeshInstance3D" parent="."]
+position = Vector3(32.93126974059916,-2.5477933297922366,-188.93302112443845)
+rotation_degrees = Vector3(0,169,-7)
+scale = Vector3(11.58368756967836,97.67820649731772,10.870779926026103)
+mesh = SubResource("Spire0")
+
+[node name="Basalt4" type="MeshInstance3D" parent="."]
+position = Vector3(-49.1286021038011,-36.948109805569686,-194.3139158889595)
+rotation_degrees = Vector3(0,7,-6)
+scale = Vector3(9.615412218727919,105.54894716832271,11.078489497831196)
+mesh = SubResource("Spire1")
+
+[node name="Basalt5" type="MeshInstance3D" parent="."]
+position = Vector3(51.39123361570506,-5.302114988836911,-192.48676004875216)
+rotation_degrees = Vector3(0,49,2)
+scale = Vector3(8.767968500922631,102.76159909566745,6.534282627512957)
+mesh = SubResource("Spire2")
+
+[node name="Basalt6" type="MeshInstance3D" parent="."]
+position = Vector3(-155.91943182382892,-46.11723094423071,-177.66273482914988)
+rotation_degrees = Vector3(0,165,2)
+scale = Vector3(11.651911444354122,70.40399421776,11.835015455222425)
+mesh = SubResource("Spire0")
+
+[node name="Basalt7" type="MeshInstance3D" parent="."]
+position = Vector3(167.7920577854237,3.341268821979594,-120.47920480867745)
+rotation_degrees = Vector3(0,159,1)
+scale = Vector3(3.841714214997075,68.44191937707437,6.349537314484295)
+mesh = SubResource("Spire1")
+
+[node name="Basalt8" type="MeshInstance3D" parent="."]
+position = Vector3(143.1458220625131,-43.159072250511755,-144.22491826701048)
+rotation_degrees = Vector3(0,102,1)
+scale = Vector3(11.190839318560057,95.67572290444105,9.545309974809093)
+mesh = SubResource("Spire2")
+
+[node name="Basalt9" type="MeshInstance3D" parent="."]
+position = Vector3(167.1623018447882,18.01594131439596,-195.1914510252821)
+rotation_degrees = Vector3(0,113,4)
+scale = Vector3(10.100229713594631,78.83600287275067,8.931756414458093)
+mesh = SubResource("Spire0")
+
+[node name="Basalt10" type="MeshInstance3D" parent="."]
+position = Vector3(-129.86731789249654,-35.34476800393775,-207.54289059332186)
+rotation_degrees = Vector3(0,49,-2)
+scale = Vector3(6.016919072427932,115.80970481484243,9.994218266986358)
+mesh = SubResource("Spire1")
+
+[node name="Basalt11" type="MeshInstance3D" parent="."]
+position = Vector3(120.39024749127185,-48.00102823839734,-160.06350026054193)
+rotation_degrees = Vector3(0,71,3)
+scale = Vector3(11.83314343925187,81.8703338415489,8.431786011558572)
+mesh = SubResource("Spire2")
+
+[node name="Basalt12" type="MeshInstance3D" parent="."]
+position = Vector3(30.83289841522179,15.161132244192455,-232.3265435538105)
+rotation_degrees = Vector3(0,155,7)
+scale = Vector3(11.758390020301102,80.97958077233412,10.37278845289407)
+mesh = SubResource("Spire0")
+
+[node name="Basalt13" type="MeshInstance3D" parent="."]
+position = Vector3(-83.38362376007078,-26.908707211041683,-123.5470854305735)
+rotation_degrees = Vector3(0,2,-5)
+scale = Vector3(6.376712160141681,115.9522829867253,6.977639735645777)
+mesh = SubResource("Spire1")
+
+[node name="Basalt14" type="MeshInstance3D" parent="."]
+position = Vector3(-110.12147294233073,26.319756565310144,-214.31845180205858)
+rotation_degrees = Vector3(0,12,-2)
+scale = Vector3(10.10029919251679,55.73969256655619,11.626650063284389)
+mesh = SubResource("Spire2")
+
+[node name="Basalt15" type="MeshInstance3D" parent="."]
+position = Vector3(124.61187453245384,-44.00832784806752,-253.1469408485149)
+rotation_degrees = Vector3(0,131,8)
+scale = Vector3(9.3865992928855,85.81450103103813,8.524094155503741)
+mesh = SubResource("Spire0")
+
+[node name="Basalt16" type="MeshInstance3D" parent="."]
+position = Vector3(-92.84055875112426,0.6266354582888338,-195.47641786668976)
+rotation_degrees = Vector3(0,119,2)
+scale = Vector3(4.2027262176883795,90.01742913058298,5.864354496139475)
+mesh = SubResource("Spire1")
+
+[node name="Basalt17" type="MeshInstance3D" parent="."]
+position = Vector3(96.26002787002267,-64.11941367817181,-126.14929945666388)
+rotation_degrees = Vector3(0,148,-3)
+scale = Vector3(3.378068280802508,112.99277131624078,9.676443352041202)
+mesh = SubResource("Spire2")
+
+[node name="Basalt18" type="MeshInstance3D" parent="."]
+position = Vector3(79.09530032021556,-13.627825193157843,-193.83450322062217)
+rotation_degrees = Vector3(0,52,5)
+scale = Vector3(11.012937004862668,64.1857098985395,7.1487436129963395)
+mesh = SubResource("Spire0")
+
+[node name="Basalt19" type="MeshInstance3D" parent="."]
+position = Vector3(29.6801978538505,28.193918896290217,-224.16548935970383)
+rotation_degrees = Vector3(0,9,-7)
+scale = Vector3(7.250436920914113,65.86145197941157,10.795090543238384)
+mesh = SubResource("Spire1")
+
+[node name="Basalt20" type="MeshInstance3D" parent="."]
+position = Vector3(-76.81091183421263,-22.231511285265604,-152.41071242487521)
+rotation_degrees = Vector3(0,53,4)
+scale = Vector3(3.3004284527803542,77.44098993369239,8.105109316774316)
+mesh = SubResource("Spire2")
+
+[node name="Basalt21" type="MeshInstance3D" parent="."]
+position = Vector3(70.4684883912727,-20.896603752026905,-189.76012063762207)
+rotation_degrees = Vector3(0,94,-5)
+scale = Vector3(9.939517527401744,69.54022891963135,5.461733019230998)
+mesh = SubResource("Spire0")
+
+[node name="Basalt22" type="MeshInstance3D" parent="."]
+position = Vector3(-85.32884224625329,-17.149420638782665,-141.25944528435372)
+rotation_degrees = Vector3(0,166,0)
+scale = Vector3(8.924229127422933,80.56681095195802,7.924450801582768)
+mesh = SubResource("Spire1")
+
+[node name="Basalt23" type="MeshInstance3D" parent="."]
+position = Vector3(-146.87048789827804,-33.52678883063834,-200.5948319923855)
+rotation_degrees = Vector3(0,0,0)
+scale = Vector3(6.417113113793264,103.57349655899857,10.303294166846218)
+mesh = SubResource("Spire2")
+
+[node name="Basalt24" type="MeshInstance3D" parent="."]
+position = Vector3(-67.84540785579341,-18.417121616269412,-225.0162079706646)
+rotation_degrees = Vector3(0,59,-1)
+scale = Vector3(8.446756156400284,87.55772551538502,10.925588759993909)
+mesh = SubResource("Spire0")
+
+[node name="Basalt25" type="MeshInstance3D" parent="."]
+position = Vector3(13.915285924295773,5.914448456196094,-299.7137884267945)
+rotation_degrees = Vector3(0,48,-8)
+scale = Vector3(6.358819232555473,53.71990027222299,8.797094922118603)
+mesh = SubResource("Spire1")
+
+[node name="Basalt26" type="MeshInstance3D" parent="."]
+position = Vector3(149.97491571351816,-9.155953284019997,-135.15502611480045)
+rotation_degrees = Vector3(0,79,4)
+scale = Vector3(6.582010925522691,83.35270793566033,6.494373715517515)
+mesh = SubResource("Spire2")
+
+[node name="Basalt27" type="MeshInstance3D" parent="."]
+position = Vector3(131.4093219887652,-10.294219450385095,-123.31674464234366)
+rotation_degrees = Vector3(0,61,-7)
+scale = Vector3(10.63269459897048,50.3797480735468,7.878792872939242)
+mesh = SubResource("Spire0")
+
+[node name="Basalt28" type="MeshInstance3D" parent="."]
+position = Vector3(140.24189256177715,1.5163607146602924,-185.60943392005817)
+rotation_degrees = Vector3(0,83,-1)
+scale = Vector3(9.56506708581168,54.55605463501862,10.321939125564011)
+mesh = SubResource("Spire1")
+
+[node name="Basalt29" type="MeshInstance3D" parent="."]
+position = Vector3(-24.615195335182705,-35.79192927937031,-123.48727782066659)
+rotation_degrees = Vector3(0,104,-1)
+scale = Vector3(7.846477558857665,68.63277374121452,8.08303480462907)
+mesh = SubResource("Spire2")
+
+[node name="Basalt30" type="MeshInstance3D" parent="."]
+position = Vector3(-121.93277667416129,-17.56256355394056,-217.08162416383865)
+rotation_degrees = Vector3(0,122,7)
+scale = Vector3(9.004328572532955,103.20016003500024,5.023714447805688)
+mesh = SubResource("Spire0")
+
+[node name="Basalt31" type="MeshInstance3D" parent="."]
+position = Vector3(60.80598593663305,-18.553750360125207,-216.7380344895662)
+rotation_degrees = Vector3(0,22,6)
+scale = Vector3(10.73139167003754,92.48768128246638,5.398221988639918)
+mesh = SubResource("Spire1")
+
+[node name="Basalt32" type="MeshInstance3D" parent="."]
+position = Vector3(23.546177247656914,12.239004793609764,-225.37211881895405)
+rotation_degrees = Vector3(0,107,-1)
+scale = Vector3(11.500103030517629,69.55760679641077,9.789158181003708)
+mesh = SubResource("Spire2")
+
+[node name="Basalt33" type="MeshInstance3D" parent="."]
+position = Vector3(115.20867401139077,-47.107175136977474,-215.10604891745274)
+rotation_degrees = Vector3(0,102,-4)
+scale = Vector3(10.349370916818577,98.12631953395406,10.147247459795963)
+mesh = SubResource("Spire0")
+
+[node name="Basalt34" type="MeshInstance3D" parent="."]
+position = Vector3(139.55905560365568,-36.48812129343383,-126.94516944080715)
+rotation_degrees = Vector3(0,142,0)
+scale = Vector3(10.062843477862126,110.70049590098174,8.175094316831814)
+mesh = SubResource("Spire1")
+
+[node name="Basalt35" type="MeshInstance3D" parent="."]
+position = Vector3(-123.32405480617395,-32.71865331999732,-266.2328104775666)
+rotation_degrees = Vector3(0,32,4)
+scale = Vector3(7.214864299127809,107.98476305337303,6.9243397369015405)
+mesh = SubResource("Spire2")
+
+[node name="Basalt36" type="MeshInstance3D" parent="."]
+position = Vector3(-54.15972764620224,-31.90258216096414,-224.1951652537535)
+rotation_degrees = Vector3(0,153,6)
+scale = Vector3(10.386851817573191,101.23693337980276,7.941473799928118)
+mesh = SubResource("Spire0")
+
+[node name="Basalt37" type="MeshInstance3D" parent="."]
+position = Vector3(-146.49142605564862,-57.88538051784445,-137.91573100917645)
+rotation_degrees = Vector3(0,43,-5)
+scale = Vector3(9.786150333756757,109.78618975129251,5.757311783420024)
+mesh = SubResource("Spire1")
+
+[node name="Basalt38" type="MeshInstance3D" parent="."]
+position = Vector3(97.21093688517965,-57.46662203252629,-186.4860577751673)
+rotation_degrees = Vector3(0,20,8)
+scale = Vector3(3.850497990871044,101.57097658166168,10.599181102976345)
+mesh = SubResource("Spire2")
+
+[node name="Basalt39" type="MeshInstance3D" parent="."]
+position = Vector3(14.268211244776353,-14.02786651911099,-278.76485365574547)
+rotation_degrees = Vector3(0,123,-4)
+scale = Vector3(3.558133917305617,71.65410552940497,9.206775153060184)
+mesh = SubResource("Spire0")
+
+[node name="Basalt40" type="MeshInstance3D" parent="."]
+position = Vector3(-63.35324846470273,-18.133934937737706,-233.32086748771263)
+rotation_degrees = Vector3(0,30,-1)
+scale = Vector3(7.963031251647282,85.43084718389105,9.144647263690572)
+mesh = SubResource("Spire1")
+
+[node name="Basalt41" type="MeshInstance3D" parent="."]
+position = Vector3(90.79844370850475,-39.35283416972052,-186.7633746738109)
+rotation_degrees = Vector3(0,152,6)
+scale = Vector3(7.882382242829869,85.14452775786071,10.990660810780309)
+mesh = SubResource("Spire2")
+
+[node name="Basalt42" type="MeshInstance3D" parent="."]
+position = Vector3(161.60286269767397,22.46438591587198,-187.36705499666542)
+rotation_degrees = Vector3(0,38,-4)
+scale = Vector3(7.2713267925582805,52.23742202843265,8.738841086978711)
+mesh = SubResource("Spire0")
+
+[node name="Basalt43" type="MeshInstance3D" parent="."]
+position = Vector3(107.90367308519899,-29.301712895547112,-110.40654251555799)
+rotation_degrees = Vector3(0,46,-3)
+scale = Vector3(7.144128498513181,56.96230944850847,5.93283498120566)
+mesh = SubResource("Spire1")
+
+[node name="Basalt44" type="MeshInstance3D" parent="."]
+position = Vector3(128.18518071421784,-23.664142855929942,-175.17970000987268)
+rotation_degrees = Vector3(0,123,2)
+scale = Vector3(3.118131089954593,74.24694031593124,7.602953677195416)
+mesh = SubResource("Spire2")
+
+[node name="Basalt45" type="MeshInstance3D" parent="."]
+position = Vector3(89.2495480467706,-55.56942617399308,-129.20372658104029)
+rotation_degrees = Vector3(0,53,-5)
+scale = Vector3(9.641891920200756,80.82945254461391,9.141024846408062)
+mesh = SubResource("Spire0")
+
+[node name="Basalt46" type="MeshInstance3D" parent="."]
+position = Vector3(-52.41735905129235,-52.545508563751795,-231.93029301683688)
+rotation_degrees = Vector3(0,162,1)
+scale = Vector3(10.322492446879204,102.05674395043258,5.455387023734824)
+mesh = SubResource("Spire1")
+
+[node name="Basalt47" type="MeshInstance3D" parent="."]
+position = Vector3(-163.60747936467624,-58.39073705138533,-213.50825234626544)
+rotation_degrees = Vector3(0,60,-6)
+scale = Vector3(6.3344322869633345,115.64644940453366,7.906190530098091)
+mesh = SubResource("Spire2")
+
+[node name="Basalt48" type="MeshInstance3D" parent="."]
+position = Vector3(5.368091148591816,-13.126843992799174,-218.65807570881992)
+rotation_degrees = Vector3(0,24,4)
+scale = Vector3(4.472617340298109,75.00405999632515,7.059775383269738)
+mesh = SubResource("Spire0")
+
+[node name="Basalt49" type="MeshInstance3D" parent="."]
+position = Vector3(50.85147062236004,-14.001528523686227,-176.64439616088762)
+rotation_degrees = Vector3(0,73,-5)
+scale = Vector3(5.928858065649021,84.98268996229285,6.745943762185157)
+mesh = SubResource("Spire1")
+
+[node name="Basalt50" type="MeshInstance3D" parent="."]
+position = Vector3(125.75878641493779,-66.0164870413479,-263.6071735209154)
+rotation_degrees = Vector3(0,105,5)
+scale = Vector3(9.46066474865801,111.63719147663791,11.176905062316532)
+mesh = SubResource("Spire2")
+
+[node name="Basalt51" type="MeshInstance3D" parent="."]
+position = Vector3(-113.68385022797167,18.990220566778433,-186.8457186251076)
+rotation_degrees = Vector3(0,54,-8)
+scale = Vector3(4.337623518466113,47.95820243822702,9.838391082049098)
+mesh = SubResource("Spire0")
+
+[node name="Basalt52" type="MeshInstance3D" parent="."]
+position = Vector3(50.95473295495836,-8.388860003882591,-206.74287559762897)
+rotation_degrees = Vector3(0,125,-1)
+scale = Vector3(6.096643195366957,110.99661883455906,6.123433448507702)
+mesh = SubResource("Spire1")
+
+[node name="Basalt53" type="MeshInstance3D" parent="."]
+position = Vector3(-10.960629152806774,-30.630350885735766,-293.9202709175426)
+rotation_degrees = Vector3(0,169,0)
+scale = Vector3(11.716318569919231,63.30672506555649,8.261595654498068)
+mesh = SubResource("Spire2")
+
+[node name="Basalt54" type="MeshInstance3D" parent="."]
+position = Vector3(73.50605413164664,-35.43723030237351,-292.74129550727633)
+rotation_degrees = Vector3(0,10,-8)
+scale = Vector3(7.166882483679593,77.34189752526584,7.354919111054538)
+mesh = SubResource("Spire0")
+
+[node name="Basalt55" type="MeshInstance3D" parent="."]
+position = Vector3(103.6482456457328,-48.049333234991664,-100.23351399291715)
+rotation_degrees = Vector3(0,152,6)
+scale = Vector3(7.420616104779515,80.0441560561188,8.675028036322628)
+mesh = SubResource("Spire1")
+
+[node name="Basalt56" type="MeshInstance3D" parent="."]
+position = Vector3(17.96925611285573,-11.342227033832938,-219.8880660962646)
+rotation_degrees = Vector3(0,100,1)
+scale = Vector3(9.779351880771198,82.25235353510627,7.7790140431604655)
+mesh = SubResource("Spire2")
+
+[node name="Basalt57" type="MeshInstance3D" parent="."]
+position = Vector3(-140.2814008746922,-30.232050161551296,-189.10835865133356)
+rotation_degrees = Vector3(0,47,7)
+scale = Vector3(11.614167802571508,78.18030549724762,5.8945062248699145)
+mesh = SubResource("Spire0")
+
+[node name="Basalt58" type="MeshInstance3D" parent="."]
+position = Vector3(53.513452498227934,-25.617731062387094,-144.1959325558109)
+rotation_degrees = Vector3(0,70,-5)
+scale = Vector3(3.2300990603803634,66.19498483805532,7.773425480673081)
+mesh = SubResource("Spire1")
+
+[node name="Basalt59" type="MeshInstance3D" parent="."]
+position = Vector3(-155.46935813003208,-50.24084425650455,-135.35152064192528)
+rotation_degrees = Vector3(0,129,6)
+scale = Vector3(8.753841028346791,53.62585646824003,7.690692360772702)
+mesh = SubResource("Spire2")
+
+[node name="Basalt60" type="MeshInstance3D" parent="."]
+position = Vector3(-67.11487667873607,-9.079856098534414,-119.19962940018242)
+rotation_degrees = Vector3(0,41,1)
+scale = Vector3(6.353348422382179,52.03508652579446,11.169716066747329)
+mesh = SubResource("Spire0")
+
+[node name="Basalt61" type="MeshInstance3D" parent="."]
+position = Vector3(-129.63254904800723,4.113557971601244,-188.08713829671302)
+rotation_degrees = Vector3(0,124,-7)
+scale = Vector3(5.739888280087458,51.839957690066605,8.076586719767107)
+mesh = SubResource("Spire1")
+
+[node name="Basalt62" type="MeshInstance3D" parent="."]
+position = Vector3(-83.88252023887381,-23.570037922386003,-130.63905542638952)
+rotation_degrees = Vector3(0,14,-7)
+scale = Vector3(3.2950415543549374,100.17808188374896,6.39260432179443)
+mesh = SubResource("Spire2")
+
+[node name="Basalt63" type="MeshInstance3D" parent="."]
+position = Vector3(-82.56802380147009,-14.19735282874895,-283.6826665077874)
+rotation_degrees = Vector3(0,34,2)
+scale = Vector3(6.388480767817664,52.635975272125975,10.812112382863866)
+mesh = SubResource("Spire0")
+
+[node name="Basalt64" type="MeshInstance3D" parent="."]
+position = Vector3(-71.73132396603694,-11.376440663254282,-204.59193233021202)
+rotation_degrees = Vector3(0,12,-3)
+scale = Vector3(10.896461053953196,100.73435650657972,10.906176097240046)
+mesh = SubResource("Spire1")
+
+[node name="Basalt65" type="MeshInstance3D" parent="."]
+position = Vector3(130.37374916318538,-16.52589847002154,-94.01018016539956)
+rotation_degrees = Vector3(0,175,-1)
+scale = Vector3(8.0750326566489,81.76457145583197,9.513565307668278)
+mesh = SubResource("Spire2")
+
+[node name="Basalt66" type="MeshInstance3D" parent="."]
+position = Vector3(-162.01659085364068,-47.69634507504106,-212.9040637181837)
+rotation_degrees = Vector3(0,154,8)
+scale = Vector3(5.242502328860363,86.55006337180451,6.553915329553009)
+mesh = SubResource("Spire0")
+
+[node name="Basalt67" type="MeshInstance3D" parent="."]
+position = Vector3(-150.7740033078781,-33.756020468237686,-104.22979309919184)
+rotation_degrees = Vector3(0,28,4)
+scale = Vector3(8.630160944692701,86.99611139098025,7.611011814886044)
+mesh = SubResource("Spire1")
+
+[node name="Basalt68" type="MeshInstance3D" parent="."]
+position = Vector3(86.51590143242589,-65.33418398754387,-159.2817666882118)
+rotation_degrees = Vector3(0,140,4)
+scale = Vector3(7.551971779507791,84.00629998464241,5.679210533890074)
+mesh = SubResource("Spire2")
+
+[node name="Basalt69" type="MeshInstance3D" parent="."]
+position = Vector3(20.584967412223932,16.95748440571067,-201.04964593473304)
+rotation_degrees = Vector3(0,63,-5)
+scale = Vector3(7.488301621408905,47.12470188478259,10.21243550211389)
+mesh = SubResource("Spire0")
+
+[node name="Basalt70" type="MeshInstance3D" parent="."]
+position = Vector3(-101.94694451559062,-12.95504150495328,-295.118825227314)
+rotation_degrees = Vector3(0,87,-8)
+scale = Vector3(10.389894999034162,88.05279874917933,6.817825143666337)
+mesh = SubResource("Spire1")
+
+[node name="Basalt71" type="MeshInstance3D" parent="."]
+position = Vector3(-75.59287924227026,-31.591163459317578,-292.18561118592856)
+rotation_degrees = Vector3(0,95,-2)
+scale = Vector3(10.984976491753532,103.700251480806,6.378218402354748)
+mesh = SubResource("Spire2")
+
+[node name="Basalt72" type="MeshInstance3D" parent="."]
+position = Vector3(66.7237676214688,-28.099188510576447,-133.92953196626172)
+rotation_degrees = Vector3(0,164,0)
+scale = Vector3(7.893383445414349,87.40896544039511,11.575397115736575)
+mesh = SubResource("Spire0")
+
+[node name="Basalt73" type="MeshInstance3D" parent="."]
+position = Vector3(53.255183260965026,-0.1379539935876739,-242.25825594577194)
+rotation_degrees = Vector3(0,16,-7)
+scale = Vector3(7.6924516684860595,63.778231852537544,10.986371647480734)
+mesh = SubResource("Spire1")
+
+[node name="Basalt74" type="MeshInstance3D" parent="."]
+position = Vector3(67.868474195347,-50.101909191691675,-155.17575879142055)
+rotation_degrees = Vector3(0,90,8)
+scale = Vector3(6.917562709980025,88.7346828689908,9.133441463549941)
+mesh = SubResource("Spire2")
+
+[node name="Basalt75" type="MeshInstance3D" parent="."]
+position = Vector3(43.661976646271626,-5.0492095912288715,-236.4738802887219)
+rotation_degrees = Vector3(0,112,2)
+scale = Vector3(3.6524493893870655,86.44887778003599,10.80331851213231)
+mesh = SubResource("Spire0")
+
+[node name="Basalt76" type="MeshInstance3D" parent="."]
+position = Vector3(-65.48751026256551,-2.3789140703448375,-224.0115056402734)
+rotation_degrees = Vector3(0,100,-7)
+scale = Vector3(9.312063371074895,73.03723666267828,5.0018578834564185)
+mesh = SubResource("Spire1")
+
+[node name="Basalt77" type="MeshInstance3D" parent="."]
+position = Vector3(-141.17660714303184,-43.94355122534854,-266.5207843619994)
+rotation_degrees = Vector3(0,121,5)
+scale = Vector3(8.510631567921216,68.5335234648884,10.193549835372721)
+mesh = SubResource("Spire2")
+
+[node name="Basalt78" type="MeshInstance3D" parent="."]
+position = Vector3(114.07327905621628,-42.003892266481344,-206.6732358006438)
+rotation_degrees = Vector3(0,58,-6)
+scale = Vector3(11.073225719767981,105.00293637764335,7.690657173290062)
+mesh = SubResource("Spire0")
+
+[node name="Basalt79" type="MeshInstance3D" parent="."]
+position = Vector3(-22.54478667725502,-66.46446942002791,-274.97470769737345)
+rotation_degrees = Vector3(0,136,-3)
+scale = Vector3(9.146318903230434,96.479399055362,5.6663377197502385)
+mesh = SubResource("Spire1")
+
+[node name="Basalt80" type="MeshInstance3D" parent="."]
+position = Vector3(50.15228078535651,-8.807248292468959,-165.9595149548707)
+rotation_degrees = Vector3(0,15,8)
+scale = Vector3(5.527417944989592,72.11167413947466,10.899571890429614)
+mesh = SubResource("Spire2")
+
+[node name="Basalt81" type="MeshInstance3D" parent="."]
+position = Vector3(128.61287672532404,-45.72288817394849,-127.73738292907498)
+rotation_degrees = Vector3(0,25,2)
+scale = Vector3(6.62060160192884,107.70659445925537,8.573927230484458)
+mesh = SubResource("Spire0")
+
+[node name="Basalt82" type="MeshInstance3D" parent="."]
+position = Vector3(75.32542817695656,-48.14899041585079,-139.03772979101333)
+rotation_degrees = Vector3(0,72,-8)
+scale = Vector3(8.802870062871595,72.40766785821596,7.967182379108631)
+mesh = SubResource("Spire1")
+
+[node name="Basalt83" type="MeshInstance3D" parent="."]
+position = Vector3(120.27992578662497,-40.36841577202525,-198.9237001732954)
+rotation_degrees = Vector3(0,131,1)
+scale = Vector3(4.827151858619968,88.38799340435406,5.53980387179139)
+mesh = SubResource("Spire2")
+
+[node name="Basalt84" type="MeshInstance3D" parent="."]
+position = Vector3(108.74895373572758,-47.93473236783218,-252.77019871554887)
+rotation_degrees = Vector3(0,46,0)
+scale = Vector3(7.530025748106713,82.73643798898512,5.737029601177485)
+mesh = SubResource("Spire0")
+
+[node name="Basalt85" type="MeshInstance3D" parent="."]
+position = Vector3(-126.16470776367852,6.551379228894561,-216.74640486419432)
+rotation_degrees = Vector3(0,122,-8)
+scale = Vector3(3.4259527203593763,60.25591279186399,8.456718595460721)
+mesh = SubResource("Spire1")
+
+[node name="Basalt86" type="MeshInstance3D" parent="."]
+position = Vector3(160.8415513625373,8.628292677151643,-120.81659525510946)
+rotation_degrees = Vector3(0,93,-5)
+scale = Vector3(5.080962088520046,68.06407433734577,9.607119602789854)
+mesh = SubResource("Spire2")
+
+[node name="Basalt87" type="MeshInstance3D" parent="."]
+position = Vector3(-162.12382220159915,-73.6635768322649,-160.37530927642922)
+rotation_degrees = Vector3(0,167,0)
+scale = Vector3(10.486343267835869,111.93602904187775,11.663791137878658)
+mesh = SubResource("Spire0")
+
+[node name="Basalt88" type="MeshInstance3D" parent="."]
+position = Vector3(-78.04843926327266,-15.34043995747739,-220.81277146957615)
+rotation_degrees = Vector3(0,34,3)
+scale = Vector3(7.795948893816888,109.56047845681869,8.477377854239242)
+mesh = SubResource("Spire1")
+
+[node name="Basalt89" type="MeshInstance3D" parent="."]
+position = Vector3(168.7179036915711,4.848142492984373,-189.03898220110844)
+rotation_degrees = Vector3(0,153,1)
+scale = Vector3(10.1518435191905,97.27174018354535,9.981963692502518)
+mesh = SubResource("Spire2")
+
+[node name="Basalt90" type="MeshInstance3D" parent="."]
+position = Vector3(1.3818005603325219,-15.451684123273921,-137.65382675846638)
+rotation_degrees = Vector3(0,70,0)
+scale = Vector3(5.048718725128679,64.65281220676226,9.20472361371353)
+mesh = SubResource("Spire0")
+
+[node name="Basalt91" type="MeshInstance3D" parent="."]
+position = Vector3(-100.2512939198425,12.78595489039704,-121.24149161343182)
+rotation_degrees = Vector3(0,115,-7)
+scale = Vector3(3.9894192870684844,81.30520136897441,9.991506162668799)
+mesh = SubResource("Spire1")
+
+[node name="Basalt92" type="MeshInstance3D" parent="."]
+position = Vector3(-166.37805464872747,-62.39403321672405,-175.08440403923072)
+rotation_degrees = Vector3(0,13,4)
+scale = Vector3(10.998660424556544,111.91499618074661,7.638445014054202)
+mesh = SubResource("Spire2")
+
+[node name="Basalt93" type="MeshInstance3D" parent="."]
+position = Vector3(-9.765796544292016,-57.01244906467572,-141.7871817131665)
+rotation_degrees = Vector3(0,91,-4)
+scale = Vector3(9.96578647485023,100.92407939378361,10.800093217388241)
+mesh = SubResource("Spire0")
+
+[node name="Basalt94" type="MeshInstance3D" parent="."]
+position = Vector3(66.41586034911012,-27.39544234033352,-182.84906475798763)
+rotation_degrees = Vector3(0,174,-1)
+scale = Vector3(8.53190357344343,112.1493988149859,5.071681244122434)
+mesh = SubResource("Spire1")
+
+[node name="Basalt95" type="MeshInstance3D" parent="."]
+position = Vector3(157.7136368169543,3.2168946118966435,-172.66727824385168)
+rotation_degrees = Vector3(0,23,3)
+scale = Vector3(9.347850066377198,65.8281374219495,11.32402486609187)
+mesh = SubResource("Spire2")
+
+[node name="Basalt96" type="MeshInstance3D" parent="."]
+position = Vector3(-2.9164411219864235,-14.420050476709807,-138.00215383562124)
+rotation_degrees = Vector3(0,159,1)
+scale = Vector3(9.652233069381044,52.20218950391379,8.1967354488751)
+mesh = SubResource("Spire0")
+
+[node name="Basalt97" type="MeshInstance3D" parent="."]
+position = Vector3(-126.05195099091057,-29.908751447892353,-189.19805773020602)
+rotation_degrees = Vector3(0,2,1)
+scale = Vector3(3.4641117995668074,116.2238212969864,9.664722186958752)
+mesh = SubResource("Spire1")
+
+[node name="Basalt98" type="MeshInstance3D" parent="."]
+position = Vector3(103.01357026392412,-66.67524627182131,-259.05220150844053)
+rotation_degrees = Vector3(0,163,3)
+scale = Vector3(11.406451184791692,110.20230005608613,6.399969624528289)
+mesh = SubResource("Spire2")
+
+[node name="Basalt99" type="MeshInstance3D" parent="."]
+position = Vector3(164.21745565400056,-3.8618757318596373,-166.99920334423447)
+rotation_degrees = Vector3(0,57,-1)
+scale = Vector3(3.4012259534073706,59.93278329757803,7.88546797504025)
+mesh = SubResource("Spire0")
+
+[node name="Basalt100" type="MeshInstance3D" parent="."]
+position = Vector3(10.88664319289117,-12.275144250894101,-190.11887752323233)
+rotation_degrees = Vector3(0,121,-4)
+scale = Vector3(7.331772600760626,100.5370919602253,9.866367706190399)
+mesh = SubResource("Spire1")
+
+[node name="Basalt101" type="MeshInstance3D" parent="."]
+position = Vector3(27.099767147924922,8.40464135575316,-127.89451342769853)
+rotation_degrees = Vector3(0,52,-7)
+scale = Vector3(6.509723323845948,48.4152138380623,10.089293120740717)
+mesh = SubResource("Spire2")
+
+[node name="Basalt102" type="MeshInstance3D" parent="."]
+position = Vector3(46.6906099482091,8.415434211561761,-216.30346662173886)
+rotation_degrees = Vector3(0,126,4)
+scale = Vector3(6.249567869320435,78.43529728197205,11.840903799076232)
+mesh = SubResource("Spire0")
+
+[node name="Basalt103" type="MeshInstance3D" parent="."]
+position = Vector3(30.039829510029307,26.212653438189225,-220.40988850290714)
+rotation_degrees = Vector3(0,80,-3)
+scale = Vector3(10.737923498619672,53.53467996700017,7.715789296389108)
+mesh = SubResource("Spire1")
+
+[node name="Basalt104" type="MeshInstance3D" parent="."]
+position = Vector3(-145.1215475302321,-11.110765973323591,-97.24661163873014)
+rotation_degrees = Vector3(0,151,-6)
+scale = Vector3(9.581848286176374,61.457370389771384,9.948501664944821)
+mesh = SubResource("Spire2")
+
+[node name="Basalt105" type="MeshInstance3D" parent="."]
+position = Vector3(-89.47587308835227,-1.1539291453663285,-171.38551753202478)
+rotation_degrees = Vector3(0,174,-6)
+scale = Vector3(7.838509938413842,73.90787554251814,7.449900475460584)
+mesh = SubResource("Spire0")
+
+[node name="Basalt106" type="MeshInstance3D" parent="."]
+position = Vector3(-129.21009083350935,-30.87325103716999,-284.294609908629)
+rotation_degrees = Vector3(0,7,8)
+scale = Vector3(4.774582593410582,88.68108504249113,9.454362077159194)
+mesh = SubResource("Spire1")
+
+[node name="Basalt107" type="MeshInstance3D" parent="."]
+position = Vector3(97.01041472570597,-22.73369515786237,-101.28360983032141)
+rotation_degrees = Vector3(0,114,0)
+scale = Vector3(6.660687628848422,56.65458302006083,9.24702008245062)
+mesh = SubResource("Spire2")
+
+[node name="Basalt108" type="MeshInstance3D" parent="."]
+position = Vector3(158.43292172057096,13.11869158421014,-217.27766631578308)
+rotation_degrees = Vector3(0,64,-7)
+scale = Vector3(11.223192762152125,85.55518471002573,7.86593957661225)
+mesh = SubResource("Spire0")
+
+[node name="Basalt109" type="MeshInstance3D" parent="."]
+position = Vector3(16.94355131266923,-28.601845284782954,-302.8399489001347)
+rotation_degrees = Vector3(0,179,0)
+scale = Vector3(10.664066962438921,116.80883241094226,8.038097479739307)
+mesh = SubResource("Spire1")
+
+[node name="Basalt110" type="MeshInstance3D" parent="."]
+position = Vector3(149.02382865904184,0.10165681989710507,-111.9491809390126)
+rotation_degrees = Vector3(0,84,2)
+scale = Vector3(5.453120173039019,76.44335751343671,5.04496902908347)
+mesh = SubResource("Spire2")
+
+[node name="Basalt111" type="MeshInstance3D" parent="."]
+position = Vector3(43.2378519024052,-26.94970150979492,-135.96279016049652)
+rotation_degrees = Vector3(0,115,7)
+scale = Vector3(9.42448590389797,104.78324039509863,10.104949203053229)
+mesh = SubResource("Spire0")
+
+[node name="Basalt112" type="MeshInstance3D" parent="."]
+position = Vector3(-40.90872364045771,-40.53805017845902,-252.02579124216737)
+rotation_degrees = Vector3(0,147,-5)
+scale = Vector3(5.080893933555549,64.03758934620653,6.4746148924743325)
+mesh = SubResource("Spire1")
+
+[node name="Basalt113" type="MeshInstance3D" parent="."]
+position = Vector3(-37.79675947731343,-60.18301293471927,-296.4620817047056)
+rotation_degrees = Vector3(0,8,-4)
+scale = Vector3(5.9310711262879625,93.52258247661584,8.172967860322759)
+mesh = SubResource("Spire2")
+
+[node name="Basalt114" type="MeshInstance3D" parent="."]
+position = Vector3(166.50281698651463,17.085727716200957,-103.33865265779912)
+rotation_degrees = Vector3(0,38,5)
+scale = Vector3(4.854783329427647,90.11535350103071,6.056490407432633)
+mesh = SubResource("Spire0")
+
+[node name="Basalt115" type="MeshInstance3D" parent="."]
+position = Vector3(-82.86009758890296,2.7019417272659645,-184.6636383129753)
+rotation_degrees = Vector3(0,90,-8)
+scale = Vector3(5.90817534095202,84.8023547024448,8.30278814817784)
+mesh = SubResource("Spire1")
+
+[node name="Basalt116" type="MeshInstance3D" parent="."]
+position = Vector3(152.54840397021735,-40.82708355601855,-156.18200269593152)
+rotation_degrees = Vector3(0,141,-1)
+scale = Vector3(8.665912199957369,115.74425894305678,10.037743905255262)
+mesh = SubResource("Spire2")
+
+[node name="Basalt117" type="MeshInstance3D" parent="."]
+position = Vector3(114.61204428809867,-32.93340363535179,-204.98055730675136)
+rotation_degrees = Vector3(0,89,7)
+scale = Vector3(10.034229632035057,61.42533356855385,10.099808605394642)
+mesh = SubResource("Spire0")
+
+[node name="Basalt118" type="MeshInstance3D" parent="."]
+position = Vector3(-103.06171065434714,7.84031026784732,-190.22179354491746)
+rotation_degrees = Vector3(0,123,-5)
+scale = Vector3(8.732234047826715,78.66872747971877,6.276432580554701)
+mesh = SubResource("Spire1")
+
+[node name="Basalt119" type="MeshInstance3D" parent="."]
+position = Vector3(168.99001875722774,24.50760795961454,-219.60739717129107)
+rotation_degrees = Vector3(0,169,-4)
+scale = Vector3(4.425981963572211,57.83118074261688,6.304427970145999)
+mesh = SubResource("Spire2")
+
+[node name="Basalt120" type="MeshInstance3D" parent="."]
+position = Vector3(-55.90340975969933,-53.30597917526261,-298.38274991691344)
+rotation_degrees = Vector3(0,109,-3)
+scale = Vector3(10.305205321134903,109.89476259023246,8.022619182435944)
+mesh = SubResource("Spire0")
+
+[node name="Basalt121" type="MeshInstance3D" parent="."]
+position = Vector3(-64.1215681036236,-25.911611227846816,-296.3350948094906)
+rotation_degrees = Vector3(0,6,-8)
+scale = Vector3(4.889743948735509,87.76731087488616,9.19036463560958)
+mesh = SubResource("Spire1")
+
+[node name="Basalt122" type="MeshInstance3D" parent="."]
+position = Vector3(168.96507105672077,-12.4761580261052,-159.33837903532853)
+rotation_degrees = Vector3(0,90,-8)
+scale = Vector3(5.164625911757269,65.04416504226938,9.569660161515422)
+mesh = SubResource("Spire2")
+
+[node name="Basalt123" type="MeshInstance3D" parent="."]
+position = Vector3(-105.37576088244973,1.832351859297006,-202.30217394876829)
+rotation_degrees = Vector3(0,163,7)
+scale = Vector3(6.866780764354835,106.35890198528097,6.7832746231188565)
+mesh = SubResource("Spire0")
+
+[node name="Basalt124" type="MeshInstance3D" parent="."]
+position = Vector3(-148.5357953359639,-36.17134647875679,-100.43435259348917)
+rotation_degrees = Vector3(0,20,-4)
+scale = Vector3(3.1084883768270215,102.50925074122408,8.269177337325466)
+mesh = SubResource("Spire1")
+
+[node name="Basalt125" type="MeshInstance3D" parent="."]
+position = Vector3(-135.77046095083983,-28.39379844217484,-262.76117747934603)
+rotation_degrees = Vector3(0,42,7)
+scale = Vector3(10.177128402183035,68.53289496040861,8.95389448575764)
+mesh = SubResource("Spire2")
+
+[node name="Basalt126" type="MeshInstance3D" parent="."]
+position = Vector3(92.91525224251382,-24.924930583986683,-298.8672663119538)
+rotation_degrees = Vector3(0,15,4)
+scale = Vector3(3.250992513727698,50.742892378414126,8.587934562223333)
+mesh = SubResource("Spire0")
+
+[node name="Basalt127" type="MeshInstance3D" parent="."]
+position = Vector3(-68.3903325225508,-15.17013250778461,-202.1849636051927)
+rotation_degrees = Vector3(0,50,-8)
+scale = Vector3(3.167079981723814,96.39606313173184,9.915185611616863)
+mesh = SubResource("Spire1")
+
+[node name="Basalt128" type="MeshInstance3D" parent="."]
+position = Vector3(110.52074937351273,-20.113032824519113,-189.54274759354763)
+rotation_degrees = Vector3(0,124,5)
+scale = Vector3(3.6919277924951777,56.58598116372564,9.864063619830022)
+mesh = SubResource("Spire2")
+
+[node name="Basalt129" type="MeshInstance3D" parent="."]
+position = Vector3(-114.63713675008022,0.25081860921417487,-124.55551307944197)
+rotation_degrees = Vector3(0,50,3)
+scale = Vector3(11.560309099796335,54.9446983653184,5.124383689083512)
+mesh = SubResource("Spire0")
+
+[node name="Basalt130" type="MeshInstance3D" parent="."]
+position = Vector3(-7.725452432102799,-40.5010289820066,-105.55045802435959)
+rotation_degrees = Vector3(0,169,1)
+scale = Vector3(8.15113146597849,94.299549008111,9.484894826549796)
+mesh = SubResource("Spire1")
+
+[node name="Basalt131" type="MeshInstance3D" parent="."]
+position = Vector3(-145.59476808702598,-30.954320927104753,-148.47397249271995)
+rotation_degrees = Vector3(0,65,5)
+scale = Vector3(8.693964885319156,47.42965287640788,5.401445956424809)
+mesh = SubResource("Spire2")
+
+[node name="Basalt132" type="MeshInstance3D" parent="."]
+position = Vector3(68.23271046539125,-31.36188917724775,-230.42886631381182)
+rotation_degrees = Vector3(0,108,7)
+scale = Vector3(9.344728691109804,93.10876327624356,7.9784988562457055)
+mesh = SubResource("Spire0")
+
+[node name="Basalt133" type="MeshInstance3D" parent="."]
+position = Vector3(-62.475365169253294,-45.97385673515077,-145.35681929752195)
+rotation_degrees = Vector3(0,119,7)
+scale = Vector3(9.639552796662613,81.6843339455329,9.909597173007935)
+mesh = SubResource("Spire1")
+
+[node name="Basalt134" type="MeshInstance3D" parent="."]
+position = Vector3(-108.24564595444023,-23.755218300651453,-149.97968804651143)
+rotation_degrees = Vector3(0,92,-1)
+scale = Vector3(10.091442419515758,93.29697561277763,7.135781514199287)
+mesh = SubResource("Spire2")
+
+[node name="Basalt135" type="MeshInstance3D" parent="."]
+position = Vector3(163.55926728385953,-3.0514406317326,-109.18044756323451)
+rotation_degrees = Vector3(0,149,-5)
+scale = Vector3(9.729098739905329,88.28491296375293,9.947539241038898)
+mesh = SubResource("Spire0")
+
+[node name="Basalt136" type="MeshInstance3D" parent="."]
+position = Vector3(-8.407108971040913,-9.654002976935633,-206.14143093851214)
+rotation_degrees = Vector3(0,173,4)
+scale = Vector3(10.62883445665764,64.84641954751993,7.087240114206008)
+mesh = SubResource("Spire1")
+
+[node name="Basalt137" type="MeshInstance3D" parent="."]
+position = Vector3(114.66846008790662,-48.0180714040639,-95.07306967800204)
+rotation_degrees = Vector3(0,136,3)
+scale = Vector3(5.56405154319641,94.83705803049914,10.205420477087925)
+mesh = SubResource("Spire2")
+
+[node name="Basalt138" type="MeshInstance3D" parent="."]
+position = Vector3(-129.7783995530378,-29.320613001784544,-198.5876035318286)
+rotation_degrees = Vector3(0,37,-2)
+scale = Vector3(10.038041784199619,113.51816868960601,10.610030254539454)
+mesh = SubResource("Spire0")
+
+[node name="Basalt139" type="MeshInstance3D" parent="."]
+position = Vector3(-20.14070110751325,-53.568427525827694,-278.50263793695115)
+rotation_degrees = Vector3(0,13,6)
+scale = Vector3(9.460891963747532,47.65002719831417,9.811958780118989)
+mesh = SubResource("Spire1")
+
+[node name="Basalt140" type="MeshInstance3D" parent="."]
+position = Vector3(-32.588316035248454,-51.86682008221698,-301.77967079942675)
+rotation_degrees = Vector3(0,21,-5)
+scale = Vector3(8.643765677683287,98.01790536210723,9.357853397250445)
+mesh = SubResource("Spire2")
+
+[node name="Basalt141" type="MeshInstance3D" parent="."]
+position = Vector3(0.08397671663811934,3.2635227231106896,-204.08796017238507)
+rotation_degrees = Vector3(0,85,-8)
+scale = Vector3(9.58113227418361,60.203048818836436,9.476886443308207)
+mesh = SubResource("Spire0")
+
+[node name="Basalt142" type="MeshInstance3D" parent="."]
+position = Vector3(-102.82078618251913,-3.5651890268934423,-151.36599874871942)
+rotation_degrees = Vector3(0,6,-5)
+scale = Vector3(3.2157865978019715,78.18173497548894,5.2228953543426275)
+mesh = SubResource("Spire1")
+
+[node name="Basalt143" type="MeshInstance3D" parent="."]
+position = Vector3(-144.9260455534064,-37.90194855292742,-180.16547132920147)
+rotation_degrees = Vector3(0,20,7)
+scale = Vector3(6.738896374227261,91.75458869371556,9.107509420932274)
+mesh = SubResource("Spire2")
+
+[node name="Basalt144" type="MeshInstance3D" parent="."]
+position = Vector3(-55.342760430586395,-26.203809848185855,-185.7132603946156)
+rotation_degrees = Vector3(0,25,-2)
+scale = Vector3(11.987796685097862,59.06583666238201,10.060546913352393)
+mesh = SubResource("Spire0")
+
+[node name="OverhangingStudy" type="MeshInstance3D" parent="."]
+position = Vector3(15,3,-12)
+rotation_degrees = Vector3(6,-52,-31)
+scale = Vector3(1.12,1.12,1.12)
+mesh = ExtResource("house")
+
+[node name="UpperFootbridge" type="MeshInstance3D" parent="."]
+position = Vector3(9,8,-18)
+rotation_degrees = Vector3(0,22,-5)
+scale = Vector3(1.6,1,1)
+mesh = ExtResource("span")
+
+[node name="Landing0" type="MeshInstance3D" parent="."]
+mesh = SubResource("Landing")
+position = Vector3(0.00000, -0.20000, 36.00000)
+rotation_degrees = Vector3(0.00000, 0.00000, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="Court0" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-2.52982, 0.00000, 43.58947)
+rotation_degrees = Vector3(0.00000, -18.43495, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="RingBridge0" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(10.50000, 0.00000, 40.00000)
+rotation_degrees = Vector3(0.00000, -20.85446, 0.00000)
+scale = Vector3(1.02951, 1.00000, 1.00000)
+
+
+[node name="Landing1" type="MeshInstance3D" parent="."]
+mesh = SubResource("Landing")
+position = Vector3(21.00000, -0.20000, 44.00000)
+rotation_degrees = Vector3(0.00000, 0.00000, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="Court1" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(22.60317, 0.00000, 51.83772)
+rotation_degrees = Vector3(0.00000, 11.56013, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="RingBridge1" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(32.00000, 1.00000, 38.00000)
+rotation_degrees = Vector3(0.00000, 28.61046, 4.56303)
+scale = Vector3(1.19623, 1.00000, 1.00000)
+
+
+[node name="Landing2" type="MeshInstance3D" parent="."]
+mesh = SubResource("Landing")
+position = Vector3(43.00000, 1.80000, 32.00000)
+rotation_degrees = Vector3(0.00000, 0.00000, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="Court2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(48.56636, 2.00000, 37.74592)
+rotation_degrees = Vector3(0.00000, 44.09062, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="RingBridge2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(48.00000, 3.00000, 19.50000)
+rotation_degrees = Vector3(0.00000, 68.19859, 4.24802)
+scale = Vector3(1.31250, 1.00000, 1.00000)
+
+
+[node name="Landing3" type="MeshInstance3D" parent="."]
+mesh = SubResource("Landing")
+position = Vector3(53.00000, 3.80000, 7.00000)
+rotation_degrees = Vector3(0.00000, 0.00000, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="Court3" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(60.88589, 4.00000, 8.34637)
+rotation_degrees = Vector3(0.00000, 80.31121, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="RingBridge3" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(52.50000, 3.50000, -5.00000)
+rotation_degrees = Vector3(0.00000, 92.38594, -2.38388)
+scale = Vector3(1.12760, 1.00000, 1.00000)
+
+
+[node name="Landing4" type="MeshInstance3D" parent="."]
+mesh = SubResource("Landing")
+position = Vector3(52.00000, 2.80000, -17.00000)
+rotation_degrees = Vector3(0.00000, 0.00000, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="Court4" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(59.36265, 3.00000, -20.12913)
+rotation_degrees = Vector3(0.00000, 113.02549, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="RingBridge4" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(45.00000, 2.00000, -30.50000)
+rotation_degrees = Vector3(0.00000, 117.40758, -3.76233)
+scale = Vector3(1.52997, 1.00000, 1.00000)
+
+
+[node name="Landing5" type="MeshInstance3D" parent="."]
+mesh = SubResource("Landing")
+position = Vector3(38.00000, 0.80000, -44.00000)
+rotation_degrees = Vector3(0.00000, 0.00000, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="Court5" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(42.06983, 1.00000, -50.88741)
+rotation_degrees = Vector3(0.00000, 149.42077, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="RingBridge5" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(26.50000, 0.50000, -48.50000)
+rotation_degrees = Vector3(0.00000, 158.62938, -2.31857)
+scale = Vector3(1.16990, 1.00000, 1.00000)
+
+
+[node name="Landing6" type="MeshInstance3D" parent="."]
+mesh = SubResource("Landing")
+position = Vector3(15.00000, -0.20000, -53.00000)
+rotation_degrees = Vector3(0.00000, 0.00000, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="Court6" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(15.45211, 0.00000, -60.98721)
+rotation_degrees = Vector3(0.00000, 176.76030, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="RingBridge6" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(1.50000, 0.00000, -47.50000)
+rotation_degrees = Vector3(0.00000, -157.83365, 0.00000)
+scale = Vector3(1.44717, 1.00000, 1.00000)
+
+
+[node name="Landing7" type="MeshInstance3D" parent="."]
+mesh = SubResource("Landing")
+position = Vector3(-12.00000, -0.20000, -42.00000)
+rotation_degrees = Vector3(0.00000, 0.00000, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="Court7" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-15.96911, 0.00000, -48.94595)
+rotation_degrees = Vector3(0.00000, -150.25512, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="RingBridge7" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(-20.00000, 2.00000, -32.00000)
+rotation_degrees = Vector3(0.00000, -128.65981, 8.87640)
+scale = Vector3(1.24519, 1.00000, 1.00000)
+
+
+[node name="Landing8" type="MeshInstance3D" parent="."]
+mesh = SubResource("Landing")
+position = Vector3(-28.00000, 3.80000, -22.00000)
+rotation_degrees = Vector3(0.00000, 0.00000, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="Court8" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-35.00973, 4.00000, -25.85535)
+rotation_degrees = Vector3(0.00000, -118.81079, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="RingBridge8" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(-28.50000, 4.50000, -9.00000)
+rotation_degrees = Vector3(0.00000, -92.20260, 2.20097)
+scale = Vector3(1.25240, 1.00000, 1.00000)
+
+
+[node name="Landing9" type="MeshInstance3D" parent="."]
+mesh = SubResource("Landing")
+position = Vector3(-29.00000, 4.80000, 4.00000)
+rotation_degrees = Vector3(0.00000, 0.00000, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="Court9" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-36.96220, 5.00000, 4.77680)
+rotation_degrees = Vector3(0.00000, -84.42780, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="RingBridge9" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(-25.00000, 3.50000, 16.00000)
+rotation_degrees = Vector3(0.00000, -71.56505, -6.76286)
+scale = Vector3(1.21722, 1.00000, 1.00000)
+
+
+[node name="Landing10" type="MeshInstance3D" parent="."]
+mesh = SubResource("Landing")
+position = Vector3(-21.00000, 1.80000, 28.00000)
+rotation_degrees = Vector3(0.00000, 0.00000, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="Court10" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(-27.10007, 2.00000, 33.17582)
+rotation_degrees = Vector3(0.00000, -49.68590, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="RingBridge10" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(-10.50000, 1.00000, 32.00000)
+rotation_degrees = Vector3(0.00000, -20.85446, -5.08586)
+scale = Vector3(1.03506, 1.00000, 1.00000)
+
+
+[node name="SouthEntry" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(0.00000, 0.00000, 28.50000)
+rotation_degrees = Vector3(0.00000, -90.00000, 0.00000)
+scale = Vector3(0.56250, 1.00000, 1.00000)
+
+
+[node name="EastEntry" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(38.00000, 1.00000, 25.00000)
+rotation_degrees = Vector3(0.00000, -38.65981, 8.87640)
+scale = Vector3(0.81009, 1.00000, 1.00000)
+
+
+[node name="NorthEntry" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(-5.50000, 0.00000, -31.50000)
+rotation_degrees = Vector3(0.00000, 126.25384, 0.00000)
+scale = Vector3(1.16257, 1.00000, 1.00000)
+
+
+[node name="PracticeLanding" type="MeshInstance3D" parent="."]
+mesh = SubResource("Landing")
+position = Vector3(-9.50000, -0.20000, 36.00000)
+rotation_degrees = Vector3(0.00000, 0.00000, 0.00000)
+scale = Vector3(1.00000, 1.00000, 1.00000)
+
+
+[node name="ReturnWalk" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(-13.75000, 1.00000, 30.50000)
+rotation_degrees = Vector3(0.00000, 149.53446, 11.46455)
+scale = Vector3(0.62889, 1.00000, 1.00000)
+
+
+
+
+[node name="WatchBeacon" type="Node3D" parent="."]
+position = Vector3(29, 17.3, -33)
+
+[node name="Standard" type="MeshInstance3D" parent="WatchBeacon"]
+position = Vector3(0, 3.35, 0)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("Standard")
+
+[node name="SilkA" type="MeshInstance3D" parent="WatchBeacon"]
+position = Vector3(0.65, 4.35, 0)
+rotation_degrees = Vector3(0,0,-9)
+mesh = SubResource("SilkA")
+
+[node name="SilkB" type="MeshInstance3D" parent="WatchBeacon"]
+position = Vector3(1.38, 3.47, 0.05)
+rotation_degrees = Vector3(0,0,-19)
+mesh = SubResource("SilkB")
+
+[node name="LightBox" type="MeshInstance3D" parent="WatchBeacon"]
+position = Vector3(0, 7, 0)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("LightBox")
+
+[node name="LampLid0" type="MeshInstance3D" parent="WatchBeacon"]
+position = Vector3(0, 6.49, 0)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("LampLid0")
+
+[node name="LampLid1" type="MeshInstance3D" parent="WatchBeacon"]
+position = Vector3(0, 7.51, 0)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("LampLid1")
+
+[node name="LampStile00" type="MeshInstance3D" parent="WatchBeacon"]
+position = Vector3(-0.35, 7, -0.35)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("LampStile00")
+
+[node name="LampStile01" type="MeshInstance3D" parent="WatchBeacon"]
+position = Vector3(-0.35, 7, 0.35)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("LampStile01")
+
+[node name="LampStile10" type="MeshInstance3D" parent="WatchBeacon"]
+position = Vector3(0.35, 7, -0.35)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("LampStile10")
+
+[node name="LampStile11" type="MeshInstance3D" parent="WatchBeacon"]
+position = Vector3(0.35, 7, 0.35)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("LampStile11")
+
+[node name="Bindery" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(15.8, -0.115, 32)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Solid" type="StaticBody3D" parent="Bindery"]
+
+[node name="Floor" type="CollisionShape3D" parent="Bindery/Solid"]
+position = Vector3(0, -0.21, 0)
+shape = SubResource("FloorShape")
+
+[node name="Back" type="CollisionShape3D" parent="Bindery/Solid"]
+position = Vector3(0, 2.6, -3.55)
+shape = SubResource("BackShape")
+
+[node name="Header" type="CollisionShape3D" parent="Bindery/Solid"]
+position = Vector3(0, 4.48, 3.55)
+shape = SubResource("HeaderShape")
+
+[node name="RoofDeck" type="CollisionShape3D" parent="Bindery/Solid"]
+position = Vector3(0, 5.12, 0)
+shape = SubResource("RoofDeckShape")
+
+[node name="SideL" type="CollisionShape3D" parent="Bindery/Solid"]
+position = Vector3(-5.15, 2.6, 0)
+shape = SubResource("SideLShape")
+
+[node name="JambL" type="CollisionShape3D" parent="Bindery/Solid"]
+position = Vector3(-3.31, 2.6, 3.55)
+shape = SubResource("JambLShape")
+
+[node name="SideR" type="CollisionShape3D" parent="Bindery/Solid"]
+position = Vector3(5.15, 2.6, 0)
+shape = SubResource("SideRShape")
+
+[node name="JambR" type="CollisionShape3D" parent="Bindery/Solid"]
+position = Vector3(3.31, 2.6, 3.55)
+shape = SubResource("JambRShape")
+
+[node name="ScribesHouse" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(30, -0.115, 21.8)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Solid" type="StaticBody3D" parent="ScribesHouse"]
+
+[node name="Floor" type="CollisionShape3D" parent="ScribesHouse/Solid"]
+position = Vector3(0, -0.21, 0)
+shape = SubResource("FloorShape")
+
+[node name="Back" type="CollisionShape3D" parent="ScribesHouse/Solid"]
+position = Vector3(0, 2.6, -3.55)
+shape = SubResource("BackShape")
+
+[node name="Header" type="CollisionShape3D" parent="ScribesHouse/Solid"]
+position = Vector3(0, 4.48, 3.55)
+shape = SubResource("HeaderShape")
+
+[node name="RoofDeck" type="CollisionShape3D" parent="ScribesHouse/Solid"]
+position = Vector3(0, 5.12, 0)
+shape = SubResource("RoofDeckShape")
+
+[node name="SideL" type="CollisionShape3D" parent="ScribesHouse/Solid"]
+position = Vector3(-5.15, 2.6, 0)
+shape = SubResource("SideLShape")
+
+[node name="JambL" type="CollisionShape3D" parent="ScribesHouse/Solid"]
+position = Vector3(-3.31, 2.6, 3.55)
+shape = SubResource("JambLShape")
+
+[node name="SideR" type="CollisionShape3D" parent="ScribesHouse/Solid"]
+position = Vector3(5.15, 2.6, 0)
+shape = SubResource("SideRShape")
+
+[node name="JambR" type="CollisionShape3D" parent="ScribesHouse/Solid"]
+position = Vector3(3.31, 2.6, 3.55)
+shape = SubResource("JambRShape")
+
+[node name="ScriptoriumCourt0" type="MeshInstance3D" parent="."]
+mesh = SubResource("Landing")
+position = Vector3(21, -0.2, 32)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Solid" type="StaticBody3D" parent="ScriptoriumCourt0"]
+
+[node name="LandingDeck" type="CollisionShape3D" parent="ScriptoriumCourt0/Solid"]
+position = Vector3(0, 0, 0)
+shape = SubResource("LandingDeckShape")
+
+[node name="ScriptoriumCourt1" type="MeshInstance3D" parent="."]
+mesh = SubResource("Landing")
+position = Vector3(21, -0.2, 27)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Solid" type="StaticBody3D" parent="ScriptoriumCourt1"]
+
+[node name="LandingDeck" type="CollisionShape3D" parent="ScriptoriumCourt1/Solid"]
+position = Vector3(0, 0, 0)
+shape = SubResource("LandingDeckShape")
+
+[node name="ScriptoriumCourt2" type="MeshInstance3D" parent="."]
+mesh = SubResource("Landing")
+position = Vector3(30, -0.2, 27)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Solid" type="StaticBody3D" parent="ScriptoriumCourt2"]
+
+[node name="LandingDeck" type="CollisionShape3D" parent="ScriptoriumCourt2/Solid"]
+position = Vector3(0, 0, 0)
+shape = SubResource("LandingDeckShape")
+
+[node name="ScriptoriumSpan0" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(21, 0, 38)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(0.375, 1, 1)
+
+[node name="ScriptoriumSpan0Frame" type="Node3D" parent="."]
+position = Vector3(21, 0, 38)
+rotation_degrees = Vector3(0, 90, 0)
+
+[node name="Solid" type="StaticBody3D" parent="ScriptoriumSpan0Frame"]
+
+[node name="Tread0" type="CollisionShape3D" parent="ScriptoriumSpan0Frame/Solid"]
+position = Vector3(0, -0.15, 0)
+shape = SubResource("Tread0Shape")
+
+[node name="RailL0" type="CollisionShape3D" parent="ScriptoriumSpan0Frame/Solid"]
+position = Vector3(0, 0.68, -1.17)
+shape = SubResource("RailL0Shape")
+
+[node name="RailR0" type="CollisionShape3D" parent="ScriptoriumSpan0Frame/Solid"]
+position = Vector3(0, 0.68, 1.17)
+shape = SubResource("RailR0Shape")
+
+[node name="ScriptoriumSpan2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(25.5, 0, 27)
+rotation_degrees = Vector3(0, -0, 0)
+scale = Vector3(0.1875, 1, 1)
+
+[node name="ScriptoriumSpan2Frame" type="Node3D" parent="."]
+position = Vector3(25.5, 0, 27)
+rotation_degrees = Vector3(0, -0, 0)
+
+[node name="Solid" type="StaticBody3D" parent="ScriptoriumSpan2Frame"]
+
+[node name="Tread2" type="CollisionShape3D" parent="ScriptoriumSpan2Frame/Solid"]
+position = Vector3(0, -0.15, 0)
+shape = SubResource("Tread2Shape")
+
+[node name="RailL2" type="CollisionShape3D" parent="ScriptoriumSpan2Frame/Solid"]
+position = Vector3(0, 0.68, -1.17)
+shape = SubResource("RailL2Shape")
+
+[node name="RailR2" type="CollisionShape3D" parent="ScriptoriumSpan2Frame/Solid"]
+position = Vector3(0, 0.68, 1.17)
+shape = SubResource("RailR2Shape")
+
+[node name="ScriptoriumSpan4" type="MeshInstance3D" parent="."]
+mesh = ExtResource("span")
+position = Vector3(36.5, 1.0, 29.5)
+rotation_degrees = Vector3(0, -21.0375110, 19.9342619)
+scale = Vector3(0.37396415739120453, 1, 1)
+
+[node name="ScriptoriumSpan4Frame" type="Node3D" parent="."]
+position = Vector3(36.5, 1.0, 29.5)
+rotation_degrees = Vector3(0, -21.0375110, 19.9342619)
+
+[node name="Solid" type="StaticBody3D" parent="ScriptoriumSpan4Frame"]
+
+[node name="Tread4" type="CollisionShape3D" parent="ScriptoriumSpan4Frame/Solid"]
+position = Vector3(0, -0.15, 0)
+shape = SubResource("Tread4Shape")
+
+[node name="RailL4" type="CollisionShape3D" parent="ScriptoriumSpan4Frame/Solid"]
+position = Vector3(0, 0.68, -1.17)
+shape = SubResource("RailL4Shape")
+
+[node name="RailR4" type="CollisionShape3D" parent="ScriptoriumSpan4Frame/Solid"]
+position = Vector3(0, 0.68, 1.17)
+shape = SubResource("RailR4Shape")
+
+[node name="DyersLodge" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(26.2, -0.115, 33.8)
+rotation_degrees = Vector3(0, -90, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Solid" type="StaticBody3D" parent="DyersLodge"]
+
+[node name="Floor" type="CollisionShape3D" parent="DyersLodge/Solid"]
+position = Vector3(0, -0.21, 0)
+shape = SubResource("FloorShape")
+
+[node name="Back" type="CollisionShape3D" parent="DyersLodge/Solid"]
+position = Vector3(0, 2.6, -3.55)
+shape = SubResource("BackShape")
+
+[node name="Header" type="CollisionShape3D" parent="DyersLodge/Solid"]
+position = Vector3(0, 4.48, 3.55)
+shape = SubResource("HeaderShape")
+
+[node name="RoofDeck" type="CollisionShape3D" parent="DyersLodge/Solid"]
+position = Vector3(0, 5.12, 0)
+shape = SubResource("RoofDeckShape")
+
+[node name="SideL" type="CollisionShape3D" parent="DyersLodge/Solid"]
+position = Vector3(-5.15, 2.6, 0)
+shape = SubResource("SideLShape")
+
+[node name="JambL" type="CollisionShape3D" parent="DyersLodge/Solid"]
+position = Vector3(-3.31, 2.6, 3.55)
+shape = SubResource("JambLShape")
+
+[node name="SideR" type="CollisionShape3D" parent="DyersLodge/Solid"]
+position = Vector3(5.15, 2.6, 0)
+shape = SubResource("SideRShape")
+
+[node name="JambR" type="CollisionShape3D" parent="DyersLodge/Solid"]
+position = Vector3(3.31, 2.6, 3.55)
+shape = SubResource("JambRShape")
+
+
+[node name="TeaMerchant" type="MeshInstance3D" parent="."]
+mesh = ExtResource("house")
+position = Vector3(8, -0.115, 25.8)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Solid" type="StaticBody3D" parent="TeaMerchant"]
+
+[node name="Floor" type="CollisionShape3D" parent="TeaMerchant/Solid"]
+position = Vector3(0, -0.21, 0)
+shape = SubResource("FloorShape")
+
+[node name="Back" type="CollisionShape3D" parent="TeaMerchant/Solid"]
+position = Vector3(0, 2.6, -3.55)
+shape = SubResource("BackShape")
+
+[node name="Header" type="CollisionShape3D" parent="TeaMerchant/Solid"]
+position = Vector3(0, 4.48, 3.55)
+shape = SubResource("HeaderShape")
+
+[node name="RoofDeck" type="CollisionShape3D" parent="TeaMerchant/Solid"]
+position = Vector3(0, 5.12, 0)
+shape = SubResource("RoofDeckShape")
+
+[node name="SideL" type="CollisionShape3D" parent="TeaMerchant/Solid"]
+position = Vector3(-5.15, 2.6, 0)
+shape = SubResource("SideLShape")
+
+[node name="JambL" type="CollisionShape3D" parent="TeaMerchant/Solid"]
+position = Vector3(-3.31, 2.6, 3.55)
+shape = SubResource("JambLShape")
+
+[node name="SideR" type="CollisionShape3D" parent="TeaMerchant/Solid"]
+position = Vector3(5.15, 2.6, 0)
+shape = SubResource("SideRShape")
+
+[node name="JambR" type="CollisionShape3D" parent="TeaMerchant/Solid"]
+position = Vector3(3.31, 2.6, 3.55)
+shape = SubResource("JambRShape")
+
+
+[node name="TeaCourt" type="MeshInstance3D" parent="."]
+mesh = SubResource("Landing")
+position = Vector3(15, -0.2, 25)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Solid" type="StaticBody3D" parent="TeaCourt"]
+
+[node name="LandingDeck" type="CollisionShape3D" parent="TeaCourt/Solid"]
+position = Vector3(0, 0, 0)
+shape = SubResource("LandingDeckShape")
+

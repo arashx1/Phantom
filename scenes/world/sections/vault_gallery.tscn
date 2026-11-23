@@ -1,0 +1,266 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="Cedar"]
+albedo_color = Color(0.34,0.17,0.09,1)
+
+[sub_resource type="StandardMaterial3D" id="Teal"]
+albedo_color = Color(0.09,0.35,0.31,1)
+
+[sub_resource type="StandardMaterial3D" id="Brass"]
+albedo_color = Color(0.85,0.54,0.20,1)
+
+[sub_resource type="BoxMesh" id="MLanding"]
+size = Vector3(5, 0.44, 8)
+material = SubResource("Cedar")
+
+[sub_resource type="BoxShape3D" id="SLanding"]
+size = Vector3(5, 0.44, 8)
+
+[sub_resource type="BoxMesh" id="MRise"]
+size = Vector3(5, 0.36, 4.6)
+material = SubResource("Cedar")
+
+[sub_resource type="BoxShape3D" id="SRise"]
+size = Vector3(5, 0.36, 4.6)
+
+[sub_resource type="BoxMesh" id="MBinding88"]
+size = Vector3(0.21, 0.19, 0.22)
+material = SubResource("Brass")
+
+[sub_resource type="BoxMesh" id="MBinding112"]
+size = Vector3(0.21, 0.19, 0.22)
+material = SubResource("Brass")
+
+[sub_resource type="BoxMesh" id="MSeam0"]
+size = Vector3(4.97, 0.012, 0.027)
+material = SubResource("Brass")
+
+[sub_resource type="BoxMesh" id="MSeam1"]
+size = Vector3(4.97, 0.012, 0.027)
+material = SubResource("Brass")
+
+[sub_resource type="BoxMesh" id="MSeam2"]
+size = Vector3(4.97, 0.012, 0.027)
+material = SubResource("Brass")
+
+[sub_resource type="BoxMesh" id="MSeam3"]
+size = Vector3(4.97, 0.012, 0.027)
+material = SubResource("Brass")
+
+[sub_resource type="BoxMesh" id="MSeam4"]
+size = Vector3(4.97, 0.012, 0.027)
+material = SubResource("Brass")
+
+[sub_resource type="BoxMesh" id="MSeam5"]
+size = Vector3(4.97, 0.012, 0.027)
+material = SubResource("Brass")
+
+[sub_resource type="BoxMesh" id="MSeam6"]
+size = Vector3(4.97, 0.012, 0.027)
+material = SubResource("Brass")
+
+[sub_resource type="BoxMesh" id="MSeam7"]
+size = Vector3(4.97, 0.012, 0.027)
+material = SubResource("Brass")
+
+[sub_resource type="BoxMesh" id="MSeam8"]
+size = Vector3(4.97, 0.012, 0.027)
+material = SubResource("Brass")
+
+[sub_resource type="BoxMesh" id="MSeam9"]
+size = Vector3(4.97, 0.012, 0.027)
+material = SubResource("Brass")
+
+[sub_resource type="BoxMesh" id="MSeam10"]
+size = Vector3(4.97, 0.012, 0.027)
+material = SubResource("Brass")
+
+[sub_resource type="BoxMesh" id="MSeam11"]
+size = Vector3(4.97, 0.012, 0.027)
+material = SubResource("Brass")
+
+[sub_resource type="BoxMesh" id="MSeam12"]
+size = Vector3(4.97, 0.012, 0.027)
+material = SubResource("Brass")
+
+[sub_resource type="BoxMesh" id="MOutsideRail"]
+size = Vector3(0.15, 0.15, 8)
+material = SubResource("Teal")
+
+[sub_resource type="BoxShape3D" id="SOutsideRail"]
+size = Vector3(0.15, 0.15, 8)
+
+[sub_resource type="BoxMesh" id="MPost0"]
+size = Vector3(0.18, 0.88, 0.18)
+material = SubResource("Cedar")
+
+[sub_resource type="BoxShape3D" id="SPost0"]
+size = Vector3(0.18, 0.88, 0.18)
+
+[sub_resource type="BoxMesh" id="MPost1"]
+size = Vector3(0.18, 0.88, 0.18)
+material = SubResource("Cedar")
+
+[sub_resource type="BoxShape3D" id="SPost1"]
+size = Vector3(0.18, 0.88, 0.18)
+
+[sub_resource type="BoxMesh" id="MPost2"]
+size = Vector3(0.18, 0.88, 0.18)
+material = SubResource("Cedar")
+
+[sub_resource type="BoxShape3D" id="SPost2"]
+size = Vector3(0.18, 0.88, 0.18)
+
+[sub_resource type="BoxMesh" id="MPost3"]
+size = Vector3(0.18, 0.88, 0.18)
+material = SubResource("Cedar")
+
+[sub_resource type="BoxShape3D" id="SPost3"]
+size = Vector3(0.18, 0.88, 0.18)
+
+[node name="VaultGallery" type="Node3D"]
+
+[node name="Landing" type="MeshInstance3D" parent="."]
+position = Vector3(7, -0.89, 10)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MLanding")
+
+[node name="Body" type="StaticBody3D" parent="Landing"]
+
+[node name="Shape" type="CollisionShape3D" parent="Landing/Body"]
+shape = SubResource("SLanding")
+
+[node name="Rise" type="MeshInstance3D" parent="."]
+position = Vector3(7, -0.55, 16.2)
+rotation_degrees = Vector3(-8,0,0)
+mesh = SubResource("MRise")
+
+[node name="Body" type="StaticBody3D" parent="Rise"]
+
+[node name="Shape" type="CollisionShape3D" parent="Rise/Body"]
+shape = SubResource("SRise")
+
+[node name="Binding88" type="MeshInstance3D" parent="."]
+position = Vector3(3.25, 1.11, 8.8)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MBinding88")
+
+[node name="Binding112" type="MeshInstance3D" parent="."]
+position = Vector3(3.25, 1.11, 11.2)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MBinding112")
+
+[node name="Seam0" type="MeshInstance3D" parent="."]
+position = Vector3(7, -0.666, 6.25)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MSeam0")
+
+[node name="Seam1" type="MeshInstance3D" parent="."]
+position = Vector3(7, -0.666, 6.85)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MSeam1")
+
+[node name="Seam2" type="MeshInstance3D" parent="."]
+position = Vector3(7, -0.666, 7.45)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MSeam2")
+
+[node name="Seam3" type="MeshInstance3D" parent="."]
+position = Vector3(7, -0.666, 8.05)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MSeam3")
+
+[node name="Seam4" type="MeshInstance3D" parent="."]
+position = Vector3(7, -0.666, 8.65)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MSeam4")
+
+[node name="Seam5" type="MeshInstance3D" parent="."]
+position = Vector3(7, -0.666, 9.25)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MSeam5")
+
+[node name="Seam6" type="MeshInstance3D" parent="."]
+position = Vector3(7, -0.666, 9.85)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MSeam6")
+
+[node name="Seam7" type="MeshInstance3D" parent="."]
+position = Vector3(7, -0.666, 10.45)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MSeam7")
+
+[node name="Seam8" type="MeshInstance3D" parent="."]
+position = Vector3(7, -0.666, 11.05)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MSeam8")
+
+[node name="Seam9" type="MeshInstance3D" parent="."]
+position = Vector3(7, -0.666, 11.649999999999999)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MSeam9")
+
+[node name="Seam10" type="MeshInstance3D" parent="."]
+position = Vector3(7, -0.666, 12.25)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MSeam10")
+
+[node name="Seam11" type="MeshInstance3D" parent="."]
+position = Vector3(7, -0.666, 12.85)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MSeam11")
+
+[node name="Seam12" type="MeshInstance3D" parent="."]
+position = Vector3(7, -0.666, 13.45)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MSeam12")
+
+[node name="OutsideRail" type="MeshInstance3D" parent="."]
+position = Vector3(9.42, -0.03, 10)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MOutsideRail")
+
+[node name="Body" type="StaticBody3D" parent="OutsideRail"]
+
+[node name="Shape" type="CollisionShape3D" parent="OutsideRail/Body"]
+shape = SubResource("SOutsideRail")
+
+[node name="Post0" type="MeshInstance3D" parent="."]
+position = Vector3(9.42, -0.32, 6.2)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MPost0")
+
+[node name="Body" type="StaticBody3D" parent="Post0"]
+
+[node name="Shape" type="CollisionShape3D" parent="Post0/Body"]
+shape = SubResource("SPost0")
+
+[node name="Post1" type="MeshInstance3D" parent="."]
+position = Vector3(9.42, -0.32, 8.7)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MPost1")
+
+[node name="Body" type="StaticBody3D" parent="Post1"]
+
+[node name="Shape" type="CollisionShape3D" parent="Post1/Body"]
+shape = SubResource("SPost1")
+
+[node name="Post2" type="MeshInstance3D" parent="."]
+position = Vector3(9.42, -0.32, 11.2)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MPost2")
+
+[node name="Body" type="StaticBody3D" parent="Post2"]
+
+[node name="Shape" type="CollisionShape3D" parent="Post2/Body"]
+shape = SubResource("SPost2")
+
+[node name="Post3" type="MeshInstance3D" parent="."]
+position = Vector3(9.42, -0.32, 13.8)
+rotation_degrees = Vector3(0,0,0)
+mesh = SubResource("MPost3")
+
+[node name="Body" type="StaticBody3D" parent="Post3"]
+
+[node name="Shape" type="CollisionShape3D" parent="Post3/Body"]
+shape = SubResource("SPost3")

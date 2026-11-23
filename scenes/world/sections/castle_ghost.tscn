@@ -1,0 +1,57 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/enemies/castle_ghost.gd" id="ai"]
+
+[ext_resource type="Mesh" path="res://scenes/world/sections/ghost_shroud.obj" id="cloth"]
+
+[sub_resource type="StandardMaterial3D" id="Mist"]
+albedo_color = Color(0.33,0.77,0.77,1)
+emission_enabled = true
+emission = Color(0.33,0.77,0.77,1)
+emission_energy_multiplier = 0.46
+cull_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="Hollow"]
+albedo_color = Color(0.025,0.06,0.085,1)
+emission_enabled = true
+emission = Color(0.025,0.06,0.085,1)
+emission_energy_multiplier = 0.8
+cull_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="Eye"]
+albedo_color = Color(0.85,0.98,0.72,1)
+emission_enabled = true
+emission = Color(0.85,0.98,0.72,1)
+emission_energy_multiplier = 0.8
+cull_mode = 2
+
+[sub_resource type="SphereMesh" id="Orb"]
+radius = 0.5
+height = 1.0
+
+[node name="Ghost" type="Node3D" groups=["castle_ghosts"]]
+script = ExtResource("ai")
+
+[node name="Spirit" type="Node3D" parent="."]
+
+[node name="Shroud" type="MeshInstance3D" parent="Spirit"]
+mesh = ExtResource("cloth")
+material_override = SubResource("Mist")
+
+[node name="Face" type="MeshInstance3D" parent="Spirit"]
+position = Vector3(0,0.47,-0.26)
+scale = Vector3(0.53, 0.59, 0.21)
+mesh = SubResource("Orb")
+material_override = SubResource("Hollow")
+
+[node name="LeftEye" type="MeshInstance3D" parent="Spirit"]
+position = Vector3(-0.103,0.48,-0.36)
+scale = Vector3(0.072, 0.094, 0.043)
+mesh = SubResource("Orb")
+material_override = SubResource("Eye")
+
+[node name="RightEye" type="MeshInstance3D" parent="Spirit"]
+position = Vector3(0.103,0.48,-0.36)
+scale = Vector3(0.072, 0.094, 0.043)
+mesh = SubResource("Orb")
+material_override = SubResource("Eye")

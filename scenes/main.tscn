@@ -1,7 +1,8 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource type="PackedScene" path="res://scenes/tests/movement_test.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/world/castle.tscn" id="1"]
 
 [node name="Main" type="Node3D"]
 
-[node name="MovementTest" parent="." instance=ExtResource("1")]
+[node name="Castle" parent="." instance=ExtResource("1")]
+

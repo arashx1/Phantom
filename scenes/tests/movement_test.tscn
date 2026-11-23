@@ -1,56 +1,5 @@
-[gd_scene format=3 uid="uid://cnbicoo7olqu6"]
+[gd_scene format=3]
 
-[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/world/castle.tscn" id="castle"]
 
-[sub_resource type="Environment" id="Environment"]
-background_mode = 1
-background_color = Color(0.12, 0.16, 0.22, 1)
-ambient_light_source = 3
-ambient_light_color = Color(0.8, 0.85, 1, 1)
-ambient_light_energy = 0.6
-
-[sub_resource type="StandardMaterial3D" id="FloorMaterial"]
-albedo_color = Color(0.3, 0.38, 0.43, 1)
-
-[sub_resource type="BoxMesh" id="FloorMesh"]
-material = SubResource("FloorMaterial")
-size = Vector3(20, 0.5, 20)
-
-[sub_resource type="BoxShape3D" id="FloorShape"]
-size = Vector3(20, 0.5, 20)
-
-[sub_resource type="BoxMesh" id="StepMesh"]
-size = Vector3(2, 0.5, 2)
-
-[sub_resource type="BoxShape3D" id="StepShape"]
-size = Vector3(2, 0.5, 2)
-
-[node name="MovementTest" type="Node3D" unique_id=998982428]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=770300574]
-environment = SubResource("Environment")
-
-[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1907446]
-transform = Transform3D(0.8660254, 0.40957603, -0.28678823, 0, 0.57357645, 0.81915206, 0.5, -0.7094065, 0.49673176, 0, 0, 0)
-shadow_enabled = true
-
-[node name="Floor" type="StaticBody3D" parent="." unique_id=556943406]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1766278574]
-mesh = SubResource("FloorMesh")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1683561910]
-shape = SubResource("FloorShape")
-
-[node name="Step" type="StaticBody3D" parent="." unique_id=94735691]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -3)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Step" unique_id=1951183601]
-mesh = SubResource("StepMesh")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Step" unique_id=1039845748]
-shape = SubResource("StepShape")
-
-[node name="Player" parent="." unique_id=1654752896 instance=ExtResource("1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 4)
+[node name="MovementTest" instance=ExtResource("castle")]
