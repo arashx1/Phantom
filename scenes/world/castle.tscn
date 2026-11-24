@@ -1,4 +1,8 @@
 [gd_scene format=3]
+[ext_resource type="Mesh" path="res://scenes/world/sections/gallery_span.res" id="crossing"]
+
+
+[ext_resource type="Script" path="res://scripts/gravity/shadow_opening.gd" id="opening"]
 
 [ext_resource type="PackedScene" path="res://scenes/world/sections/castle_ghost.tscn" id="ghost"]
 [ext_resource type="PackedScene" path="res://scenes/world/sections/vault_gallery.tscn" id="vaultgallery"]
@@ -11,6 +15,9 @@
 [ext_resource type="PackedScene" path="res://scenes/world/sections/castle_shell.scn" id="shell"]
 
 [ext_resource type="Shader" path="res://scenes/world/sections/chasm_sky.gdshader" id="chasm"]
+
+[sub_resource type="BoxShape3D" id="crossing_floor"]
+size = Vector3(29, 0.28, 2.6)
 
 [sub_resource type="ShaderMaterial" id="CourtyardAir"]
 shader = ExtResource("chasm")
@@ -26,13 +33,13 @@ ambient_light_source = 2
 ambient_light_color = Color(0.8, 0.85, 1, 1)
 ambient_light_energy = 0.33
 adjustment_enabled = true
-adjustment_contrast = 1.08
+adjustment_contrast = 1.025
 adjustment_saturation = 1.04
 fog_enabled = true
-fog_light_color = Color(0.16,0.32,0.43,1)
+fog_light_color = Color(0.12,0.12,0.21,1)
 fog_light_energy = 0.86
 fog_sky_affect = 0.15
-fog_density = 0.014
+fog_density = 0.0028
 
 [sub_resource type="StandardMaterial3D" id="FloorMaterial"]
 albedo_color = Color(0.3, 0.38, 0.43, 1)
@@ -59,7 +66,8 @@ environment = SubResource("Environment")
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=1907446]
 transform = Transform3D(0.8660254, 0.40957603, -0.28678823, 0, 0.57357645, 0.81915206, 0.5, -0.7094065, 0.49673176, 0, 0, 0)
 shadow_enabled = true
-light_energy = 0.27
+light_color = Color(0.77,0.79,1,1)
+light_energy = 0.52
 
 [node name="Player" parent="." unique_id=1654752896 instance=ExtResource("1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 12)
@@ -78,6 +86,7 @@ position = Vector3(0, -0.15, 0)
 [node name="VaultGallery" parent="." instance=ExtResource("vaultgallery")]
 
 [node name="BalconyWisp" parent="." instance=ExtResource("ghost")]
+bell_keeper = true
 position = Vector3(0, 1.6, -9)
 patrol_offset = Vector3(0, 0, -12)
 
@@ -96,3 +105,16 @@ patrol_offset = Vector3(1, -1, -15)
 [node name="HighWisp" parent="." instance=ExtResource("ghost")]
 position = Vector3(3, 15, -40)
 patrol_offset = Vector3(8, 1, 5)
+
+[node name="LanternCrossing" type="StaticBody3D" parent="."]
+position = Vector3(15, -0.18, 10)
+
+[node name="Deck" type="MeshInstance3D" parent="LanternCrossing"]
+mesh = ExtResource("crossing")
+scale = Vector3(1.8, 1, 1)
+
+[node name="DeckCollision" type="CollisionShape3D" parent="LanternCrossing"]
+shape = SubResource("crossing_floor")
+
+[node name="ShadowOpening" type="Node3D" parent="."]
+script = ExtResource("opening")

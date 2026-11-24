@@ -1,122 +1,40 @@
-[gd_scene format=3]
-
-[sub_resource type="StandardMaterial3D" id="Wood"]
-albedo_color = Color(0.25, 0.12, 0.065, 1)
-
-[sub_resource type="StandardMaterial3D" id="Trim"]
-albedo_color = Color(0.61, 0.37, 0.14, 1)
-
-[sub_resource type="StandardMaterial3D" id="Cloth"]
-albedo_color = Color(0.09, 0.27, 0.23, 1)
-
-[sub_resource type="StandardMaterial3D" id="Paper"]
-albedo_color = Color(0.78, 0.64, 0.41, 1)
-
-[sub_resource type="StandardMaterial3D" id="Ink"]
-albedo_color = Color(0.18, 0.1, 0.085, 1)
-
-[sub_resource type="BoxMesh" id="SleepingDaisMesh"]
-size = Vector3(1.65, 0.4, 2.8)
-material = SubResource("Wood")
+[gd_scene format=4]
 
 [sub_resource type="BoxShape3D" id="SleepingDaisShape"]
 size = Vector3(1.65, 0.4, 2.8)
 
-[sub_resource type="BoxMesh" id="QuiltMesh"]
-size = Vector3(1.59, 0.12, 2.22)
-material = SubResource("Cloth")
-
-[sub_resource type="BoxMesh" id="PillowMesh"]
-size = Vector3(0.95, 0.19, 0.45)
-material = SubResource("Paper")
-
-[sub_resource type="BoxMesh" id="WritingChestMesh"]
-size = Vector3(1.75, 0.88, 0.95)
-material = SubResource("Wood")
-
 [sub_resource type="BoxShape3D" id="WritingChestShape"]
 size = Vector3(1.75, 0.88, 0.95)
 
-[sub_resource type="BoxMesh" id="DeskLipMesh"]
-size = Vector3(1.85, 0.08, 1.04)
-material = SubResource("Trim")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57460"]
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
 
-[sub_resource type="BoxMesh" id="LedgerMesh"]
-size = Vector3(0.63, 0.1, 0.48)
-material = SubResource("Ink")
+[sub_resource type="ArrayMesh" id="ArrayMesh_kh2nl"]
+_surfaces = [{
+"aabb": AABB(-3.345, 0, -5.2, 6.69, 1.0715, 2.7999997),
+"attribute_data": PackedByteArray("Px4Q/z8eEP8/HhD/Px4Q/z8eEP8/HhD/Px4Q/z8eEP8/HhD/Px4Q/z8eEP8/HhD/Px4Q/z8eEP8/HhD/Px4Q/z8eEP8/HhD/Px4Q/z8eEP8/HhD/Px4Q/z8eEP8/HhD/FkQ6/xZEOv8WRDr/FkQ6/xZEOv8WRDr/FkQ6/xZEOv8WRDr/FkQ6/xZEOv8WRDr/FkQ6/xZEOv8WRDr/FkQ6/xZEOv8WRDr/FkQ6/xZEOv8WRDr/FkQ6/xZEOv8WRDr/xqNo/8ajaP/Go2j/xqNo/8ajaP/Go2j/xqNo/8ajaP/Go2j/xqNo/8ajaP/Go2j/xqNo/8ajaP/Go2j/xqNo/8ajaP/Go2j/xqNo/8ajaP/Go2j/xqNo/8ajaP/Go2j/Px4Q/z8eEP8/HhD/Px4Q/z8eEP8/HhD/Px4Q/z8eEP8/HhD/Px4Q/z8eEP8/HhD/Px4Q/z8eEP8/HhD/Px4Q/z8eEP8/HhD/Px4Q/z8eEP8/HhD/Px4Q/z8eEP8/HhD/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/LRkV/y0ZFf8tGRX/LRkV/y0ZFf8tGRX/LRkV/y0ZFf8tGRX/LRkV/y0ZFf8tGRX/LRkV/y0ZFf8tGRX/LRkV/y0ZFf8tGRX/LRkV/y0ZFf8tGRX/LRkV/y0ZFf8tGRX/xqNo/8ajaP/Go2j/xqNo/8ajaP/Go2j/xqNo/8ajaP/Go2j/xqNo/8ajaP/Go2j/xqNo/8ajaP/Go2j/xqNo/8ajaP/Go2j/xqNo/8ajaP/Go2j/xqNo/8ajaP/Go2j/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/m14j/5teI/+bXiP/"),
+"format": 34359742479,
+"index_count": 324,
+"index_data": PackedByteArray("AAABAAIAAQADAAIABAAFAAYABQAHAAYACAAJAAoACQALAAoADAANAA4ADQAPAA4AEAARABIAEQATABIAFAAVABYAFQAXABYAGAAZABoAGQAbABoAHAAdAB4AHQAfAB4AIAAhACIAIQAjACIAJAAlACYAJQAnACYAKAApACoAKQArACoALAAtAC4ALQAvAC4AMAAxADIAMQAzADIANAA1ADYANQA3ADYAOAA5ADoAOQA7ADoAPAA9AD4APQA/AD4AQABBAEIAQQBDAEIARABFAEYARQBHAEYASABJAEoASQBLAEoATABNAE4ATQBPAE4AUABRAFIAUQBTAFIAVABVAFYAVQBXAFYAWABZAFoAWQBbAFoAXABdAF4AXQBfAF4AYABhAGIAYQBjAGIAZABlAGYAZQBnAGYAaABpAGoAaQBrAGoAbABtAG4AbQBvAG4AcABxAHIAcQBzAHIAdAB1AHYAdQB3AHYAeAB5AHoAeQB7AHoAfAB9AH4AfQB/AH4AgACBAIIAgQCDAIIAhACFAIYAhQCHAIYAiACJAIoAiQCLAIoAjACNAI4AjQCPAI4AkACRAJIAkQCTAJIAlACVAJYAlQCXAJYAmACZAJoAmQCbAJoAnACdAJ4AnQCfAJ4AoAChAKIAoQCjAKIApAClAKYApQCnAKYAqACpAKoAqQCrAKoArACtAK4ArQCvAK4AsACxALIAsQCzALIAtAC1ALYAtQC3ALYAuAC5ALoAuQC7ALoAvAC9AL4AvQC/AL4AwADBAMIAwQDDAMIAxADFAMYAxQDHAMYAyADJAMoAyQDLAMoAzADNAM4AzQDPAM4A0ADRANIA0QDTANIA1ADVANYA1QDXANYA"),
+"material": SubResource("StandardMaterial3D_57460"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 216,
+"vertex_data": PackedByteArray("exRWwM3MzD6amRnAwvXYv83MzD6amRnAexRWwAAAAACamRnAwvXYvwAAAACamRnAwvXYv83MzD5mZqbAexRWwM3MzD5mZqbAwvXYvwAAAABmZqbAexRWwAAAAABmZqbAwvXYv83MzD6amRnAwvXYv83MzD5mZqbAwvXYvwAAAACamRnAwvXYvwAAAABmZqbAexRWwM3MzD5mZqbAexRWwM3MzD6amRnAexRWwAAAAABmZqbAexRWwAAAAACamRnAwvXYv83MzD6amRnAexRWwM3MzD6amRnAwvXYv83MzD5mZqbAexRWwM3MzD5mZqbAexRWwAAAAACamRnAwvXYvwAAAACamRnAexRWwAAAAABmZqbAwvXYvwAAAABmZqbA9ihUwLgeBT/2KBzAzMzcv7geBT/2KBzA9ihUwM3MzD72KBzAzMzcv83MzD72KBzAzMzcv7geBT+4HpXA9ihUwLgeBT+4HpXAzMzcv83MzD64HpXA9ihUwM3MzD64HpXAzMzcv7geBT/2KBzAzMzcv7geBT+4HpXAzMzcv83MzD72KBzAzMzcv83MzD64HpXA9ihUwLgeBT+4HpXA9ihUwLgeBT/2KBzA9ihUwM3MzD64HpXA9ihUwM3MzD72KBzAzMzcv7geBT/2KBzA9ihUwLgeBT/2KBzAzMzcv7geBT+4HpXA9ihUwLgeBT+4HpXA9ihUwM3MzD72KBzAzMzcv83MzD72KBzA9ihUwM3MzD64HpXAzMzcv83MzD64HpXAFK4/wOxRGD8VrpPASOECwOxRGD8VrpPAFK4/wClczz4VrpPASOECwClczz4VrpPASOECwOxRGD97FKLAFK4/wOxRGD97FKLASOECwClczz57FKLAFK4/wClczz57FKLASOECwOxRGD8VrpPASOECwOxRGD97FKLASOECwClczz4VrpPASOECwClczz57FKLAFK4/wOxRGD97FKLAFK4/wOxRGD8VrpPAFK4/wClczz57FKLAFK4/wClczz4VrpPASOECwOxRGD8VrpPAFK4/wOxRGD8VrpPASOECwOxRGD97FKLAFK4/wOxRGD97FKLAFK4/wClczz4VrpPASOECwClczz4VrpPAFK4/wClczz57FKLASOECwClczz57FKLAkMLFP65HYT8AAITASOFSQK5HYT8AAITAkMLFPwAAAAAAAITA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/3//vwAAAID/f/+/AAAAgP9//78AgP//AAD/vwCA//8AAP+/AID//wAA/78AgP//AAD/vwCAAAAAAP+/AIAAAAAA/78AgAAAAAD/vwCAAAAAAP+//3//fwCAAID/f/9/AIAAgP9//38AgACA/3//fwCAAID//////38AgP//////fwCA//////9/AID//////38AgP//AIAAgP+///8AgACA/7///wCAAID/v///AIAAgP+/AAAAgP9//78AAACA/3//vwAAAID/f/+/AAAAgP9//78AgP//AAD/vwCA//8AAP+/AID//wAA/78AgP//AAD/vwCAAAAAAP+/AIAAAAAA/78AgAAAAAD/vwCAAAAAAP+//3//fwCAAID/f/9/AIAAgP9//38AgACA/3//fwCAAID//////38AgP//////fwCA//////9/AID//////38AgP//AIAAgP+///8AgACA/7///wCAAID/v///AIAAgP+/AAAAgP9//78AAACA/3//vwAAAID/f/+/AAAAgP9//78AgP//AAD/vwCA//8AAP+/AID//wAA/78AgP//AAD/vwCAAAAAAP+/AIAAAAAA/78AgAAAAAD/vwCAAAAAAP+//3//fwCAAID/f/9/AIAAgP9//38AgACA/3//fwCAAID//////38AgP//////fwCA//////9/AID//////38AgP//AIAAgP+///8AgACA/7///wCAAID/v///AIAAgP+/AAAAgP9//78AAACA/3//vwAAAID/f/+/AAAAgP9//78AgP//AAD/vwCA//8AAP+/AID//wAA/78AgP//AAD/vwCAAAAAAP+/AIAAAAAA/78AgAAAAAD/vwCAAAAAAP+//3//fwCAAID/f/9/AIAAgP9//38AgACA/3//fwCAAID//////38AgP//////fwCA//////9/AID//////38AgP//AIAAgP+///8AgACA/7///wCAAID/v///AIAAgP+/AAAAgP9//78AAACA/3//vwAAAID/f/+/AAAAgP9//78AgP//AAD/vwCA//8AAP+/AID//wAA/78AgP//AAD/vwCAAAAAAP+/AIAAAAAA/78AgAAAAAD/vwCAAAAAAP+//3//fwCAAID/f/9/AIAAgP9//38AgACA/3//fwCAAID//////38AgP//////fwCA//////9/AID//////38AgP//AIAAgP+///8AgACA/7///wCAAID/v///AIAAgP+/AAAAgP9//78AAACA/3//vwAAAID/f/+/AAAAgP9//78AgP//AAD/vwCA//8AAP+/AID//wAA/78AgP//AAD/vwCAAAAAAP+/AIAAAAAA/78AgAAAAAD/vwCAAAAAAP+//3//fwCAAID/f/9/AIAAgP9//38AgACA/3//fwCAAID//////38AgP//////fwCA//////9/AID//////38AgP//AIAAgP+///8AgACA/7///wCAAID/v///AIAAgP+/AAAAgP9//78AAACA/3//vwAAAID/f/+/AAAAgP9//78AgP//AAD/vwCA//8AAP+/AID//wAA/78AgP//AAD/vwCAAAAAAP+/AIAAAAAA/78AgAAAAAD/vwCAAAAAAP+//3//fwCAAID/f/9/AIAAgP9//38AgACA/3//fwCAAID//////38AgP//////fwCA//////9/AID//////38AgP//AIAAgP+///8AgACA/7///wCAAID/v///AIAAgP+/AAAAgP9//78AAACA/3//vwAAAID/f/+/AAAAgP9//78AgP//AAD/vwCA//8AAP+/AID//wAA/78AgP//AAD/vwCAAAAAAP+/AIAAAAAA/78AgAAAAAD/vwCAAAAAAP+//3//fwCAAID/f/9/AIAAgP9//38AgACA/3//fwCAAID//////38AgP//////fwCA//////9/AID//////38AgP//AIAAgP+///8AgACA/7///wCAAID/v///AIAAgP+/AAAAgP9//78AAACA/3//vwAAAID/f/+/AAAAgP9//78AgP//AAD/vwCA//8AAP+/AID//wAA/78AgP//AAD/vwCAAAAAAP+/AIAAAAAA/78AgAAAAAD/vwCAAAAAAP+/")
+}]
 
-[sub_resource type="BoxMesh" id="PagesMesh"]
-size = Vector3(0.6, 0.023, 0.45)
-material = SubResource("Paper")
+[node name="RoomInterior" type="StaticBody3D" unique_id=123597435]
 
-[sub_resource type="BoxMesh" id="Pull0Mesh"]
-size = Vector3(0.16, 0.08, 0.06)
-material = SubResource("Trim")
-
-[sub_resource type="BoxMesh" id="Pull1Mesh"]
-size = Vector3(0.16, 0.08, 0.06)
-material = SubResource("Trim")
-
-[node name="RoomInterior" type="StaticBody3D"]
-
-[node name="SleepingDais" type="MeshInstance3D" parent="."]
-position = Vector3(-2.52, 0.2, -3.8)
-mesh = SubResource("SleepingDaisMesh")
-visibility_range_end = 42
-visibility_range_end_margin = 4
-
-[node name="SleepingDaisSolid" type="CollisionShape3D" parent="."]
-position = Vector3(-2.52, 0.2, -3.8)
+[node name="SleepingDaisSolid" type="CollisionShape3D" parent="." unique_id=750504935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52, 0.2, -3.8)
 shape = SubResource("SleepingDaisShape")
 
-[node name="Quilt" type="MeshInstance3D" parent="."]
-position = Vector3(-2.52, 0.46, -3.55)
-mesh = SubResource("QuiltMesh")
-visibility_range_end = 42
-visibility_range_end_margin = 4
-
-[node name="Pillow" type="MeshInstance3D" parent="."]
-position = Vector3(-2.52, 0.5, -4.84)
-mesh = SubResource("PillowMesh")
-visibility_range_end = 42
-visibility_range_end_margin = 4
-
-[node name="WritingChest" type="MeshInstance3D" parent="."]
-position = Vector3(2.42, 0.44, -4.6)
-mesh = SubResource("WritingChestMesh")
-visibility_range_end = 42
-visibility_range_end_margin = 4
-
-[node name="WritingChestSolid" type="CollisionShape3D" parent="."]
-position = Vector3(2.42, 0.44, -4.6)
+[node name="WritingChestSolid" type="CollisionShape3D" parent="." unique_id=1205724692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42, 0.44, -4.6)
 shape = SubResource("WritingChestShape")
 
-[node name="DeskLip" type="MeshInstance3D" parent="."]
-position = Vector3(2.42, 0.92, -4.6)
-mesh = SubResource("DeskLipMesh")
-visibility_range_end = 42
-visibility_range_end_margin = 4
-
-[node name="Ledger" type="MeshInstance3D" parent="."]
-position = Vector3(2.22, 1, -4.58)
-mesh = SubResource("LedgerMesh")
-visibility_range_end = 42
-visibility_range_end_margin = 4
-
-[node name="Pages" type="MeshInstance3D" parent="."]
-position = Vector3(2.22, 1.06, -4.58)
-mesh = SubResource("PagesMesh")
-visibility_range_end = 42
-visibility_range_end_margin = 4
-
-[node name="Pull0" type="MeshInstance3D" parent="."]
-position = Vector3(2.03, 0.66, -4.1)
-mesh = SubResource("Pull0Mesh")
-visibility_range_end = 42
-visibility_range_end_margin = 4
-
-[node name="Pull1" type="MeshInstance3D" parent="."]
-position = Vector3(2.81, 0.66, -4.1)
-mesh = SubResource("Pull1Mesh")
-visibility_range_end = 42
-visibility_range_end_margin = 4
+[node name="WritingChest" type="MeshInstance3D" parent="." unique_id=1012423058]
+visibility_range_end = 42.0
+visibility_range_end_margin = 4.0
+mesh = SubResource("ArrayMesh_kh2nl")

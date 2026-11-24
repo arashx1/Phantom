@@ -1,2 +1,1 @@
-So in this basically 
-it is a game where we there is like infinity castlea nd we ahev to basically be saved from a ghost who is behind us a monster who is creepy and you have to be like changing the things
+So this is basically going to be a game which seems like demon salyer infinite castle arc here the ghost are behind you similar as granny and you cna feel the thrill adn horror in the game which will overwhelmed you...enjoy the gameplay and if you want vercel link dm me I will send you run.world or io link as it going to be developd much more her only a prototype...BE READY

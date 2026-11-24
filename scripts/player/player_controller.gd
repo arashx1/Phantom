@@ -28,6 +28,13 @@ var pending_time := 0.0
 var turn_axis := Vector3.RIGHT
 var field_up := Vector3.UP
 var gravity_map: Node
+var climbing := false
+var climb_start := Vector3.ZERO
+var climb_top := Vector3.ZERO
+var climb_forward := Vector3.ZERO
+var climb_time := 0.0
+var next_grab := 0.0
+var climbing_hand: Node3D
 var gait_weight := 0.0
 var breath := 0.0
 var body_heading := 0.0
@@ -74,6 +81,10 @@ func _ready() -> void:
 	lantern_arm.rotation = Vector3(1.35,0.57,0.10)
 	lantern_arm.scale = Vector3.ONE * 0.82
 	lantern_arm.get_node("Lantern").rotation.x = -1.35
+	climbing_hand = left_arm.duplicate() as Node3D
+	first_camera.add_child(climbing_hand)
+	climbing_hand.scale = Vector3.ONE * 0.82
+	climbing_hand.position = Vector3(-0.40,-0.13,-0.47)
 	arm.add_excluded_object(get_rid())
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	update_view()
@@ -81,6 +92,9 @@ func _ready() -> void:
 func update_view() -> void:
 	visual.visible = third_person
 	lantern_arm.visible = not third_person
+	climbing_hand.visible = climbing and not third_person
+	lantern_arm.get_node("Lantern").visible = not climbing
+	right_arm.get_node("Lantern").visible = not climbing
 	first_camera.current = not third_person
 	third_camera.current = third_person
 
@@ -147,10 +161,81 @@ func align_to_floor(delta: float) -> void:
 	global_basis = global_basis.rotated(turn_axis,minf(angle,gravity_turn_rate*delta)).orthonormalized()
 	up_direction = global_basis.y
 
+func try_grab(direction: Vector3) -> bool:
+	var space := get_world_3d().direct_space_state
+	var chest := global_position + up_direction * 1.44
+	var wall := space.intersect_ray(PhysicsRayQueryParameters3D.create(chest, chest + direction*0.9, collision_mask, [get_rid()]))
+	if wall.is_empty() or absf(wall.normal.dot(up_direction)) > 0.32:
+		return false
+	var inward: Vector3 = -wall.normal.slide(up_direction).normalized()
+	var over_lip: Vector3 = wall.position + inward*0.47
+	var top := space.intersect_ray(PhysicsRayQueryParameters3D.create(over_lip+up_direction*1.50, over_lip-up_direction*0.12, collision_mask, [get_rid()]))
+	if top.is_empty() or top.normal.dot(up_direction) < 0.86:
+		return false
+	var arrival: Vector3 = top.position+up_direction*0.055
+	var room := PhysicsShapeQueryParameters3D.new()
+	room.shape = collider.shape
+	room.transform = Transform3D(global_basis, arrival + up_direction*collider.position.y)
+	room.collision_mask = collision_mask
+	room.exclude = [get_rid()]
+	if not space.intersect_shape(room,1).is_empty():
+		return false
+	climb_start = global_position
+	climb_top = arrival
+	climb_forward = inward
+	climb_time = 0
+	climbing = true
+	velocity = Vector3.ZERO
+	grace = 0
+	buffered_jump = 0
+	update_view()
+	return true
+
+func finish_climb() -> void:
+	climbing = false
+	next_grab = 0.25
+	lantern_arm.rotation = Vector3(1.35,0.57,0.10)
+	update_view()
+
+func advance_climb(delta: float) -> void:
+	climb_time = minf(climb_time + delta/1.05, 1)
+	var height := (climb_top-climb_start).dot(up_direction)
+	var rise := smoothstep(0.08,0.70,climb_time)
+	var inward := smoothstep(0.69,1.0,climb_time)
+	var next := climb_start + up_direction*height*rise + (climb_top-climb_start).slide(up_direction)*inward
+	var motion := next-global_position
+	var hit := move_and_collide(motion)
+	if hit and hit.get_remainder().length() > 0.015:
+		finish_climb()
+		return
+	var relative := global_basis.inverse()*climb_forward
+	body_heading = rotate_toward(body_heading, atan2(-relative.x,-relative.z), delta*10)
+	visual.rotation.y = body_heading
+	var reach := sin(climb_time*TAU)
+	var pull := smoothstep(0.59,1.0,climb_time)
+	var mix_pose := 1-exp(-18*delta)
+	for i in 2:
+		var arm_node := left_arm if i == 0 else right_arm
+		var leg_node := left_leg if i == 0 else right_leg
+		var beat := reach if i == 0 else -reach
+		arm_node.rotation.x = lerpf(arm_node.rotation.x, (2.50+0.43*beat)*(1-pull)+0.40*pull, mix_pose)
+		arm_node.rotation.z = lerpf(arm_node.rotation.z, (-0.19 if i==0 else 0.19)*(1-pull), mix_pose)
+		leg_node.rotation.x = lerpf(leg_node.rotation.x, (0.62-0.43*beat)*(1-pull), mix_pose)
+		var knee := leg_node.get_node("Knee") as Node3D
+		knee.rotation.x = lerpf(knee.rotation.x, (-1.0+0.4*beat)*(1-pull), mix_pose)
+	climbing_hand.rotation = Vector3(2.26+0.47*reach, -0.35, 0.18)
+	lantern_arm.rotation = Vector3(2.26-0.47*reach, 0.35, -0.18)
+	if climb_time >= 1:
+		finish_climb()
+
 func _physics_process(delta: float) -> void:
+	if climbing:
+		advance_climb(delta)
+		return
+	next_grab = maxf(0, next_grab-delta)
 	align_to_floor(delta)
 	var grounded := is_on_floor()
-	var playing := Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
+	var playing := Input.mouse_mode == Input.MOUSE_MODE_CAPTURED or DisplayServer.get_name() == "headless"
 	if playing:
 		if Input.is_physical_key_pressed(KEY_C) and not sit_held:
 			change_posture(Posture.STAND if posture == Posture.SIT else Posture.SIT)
@@ -171,6 +256,11 @@ func _physics_process(delta: float) -> void:
 	elif posture == Posture.CRAWL:
 		speed = 1.45
 	var target := global_basis * Vector3(movement.x, 0, movement.y) * speed
+	if playing and posture == Posture.STAND and movement.y < -0.55 and Input.is_action_pressed("jump") and vault_time <= 0 and next_grab <= 0:
+		next_grab = 0.10
+		if try_grab(target.normalized()):
+			advance_climb(delta)
+			return
 	var acceleration := 38.0 if grounded else 14.0
 	if grounded and movement.is_zero_approx():
 		acceleration = 48.0
@@ -267,8 +357,8 @@ func animate_courier(delta: float, horizontal: Vector3) -> void:
 		leg.rotation.x = lerpf(leg.rotation.x, impact*0.58 + sin(cycle)*0.77*gait_weight + tuck*(0.72 if i == 0 else -0.36), blend)
 	left_arm.rotation.x = lerpf(left_arm.rotation.x, -phase*gait_weight*0.61 - tuck*0.36, blend)
 	right_arm.rotation.x = lerpf(right_arm.rotation.x, phase*gait_weight*0.39 - tuck*0.25, blend)
-	left_arm.rotation.z = lerpf(left_arm.rotation.z, -0.08-tuck*0.48-descent*1.08, blend)
-	right_arm.rotation.z = lerpf(right_arm.rotation.z, 0.08+tuck*0.48+descent*0.91, blend)
+	left_arm.rotation.z = lerpf(left_arm.rotation.z, 0.30-tuck*0.48-descent*1.45, blend)
+	right_arm.rotation.z = lerpf(right_arm.rotation.z, -0.30+tuck*0.48+descent*1.29, blend)
 	var acceleration := clampf((speed-previous_speed)/maxf(delta,0.001),-35,35)
 	previous_speed = speed
 	visual.rotation.x = lerpf(visual.rotation.x, -0.095*run - acceleration*0.002 - impact*0.27 - descent*0.16, blend)
@@ -282,6 +372,8 @@ func animate_courier(delta: float, horizontal: Vector3) -> void:
 	scarf.rotation.z = lerpf(scarf.rotation.z,clampf(turn,-1,1)*run*0.23,blend)
 	var seated := posture == Posture.SIT
 	var crawling := posture == Posture.CRAWL
+	$Visual/Torso/Skirt1.rotation.x = lerpf($Visual/Torso/Skirt1.rotation.x, gait_weight*phase*.22 - descent*.16 + (0.92 if seated else 0.0),blend)
+	$"Visual/Torso/Skirt-1".rotation.x = lerpf($"Visual/Torso/Skirt-1".rotation.x, -gait_weight*phase*.22 - descent*.16 + (0.92 if seated else 0.0),blend)
 	var eye_height := 1.37 if seated else (0.58 if crawling else 2.13)
 	head.position.y = lerpf(head.position.y, eye_height, blend)
 	var hip := Vector3(0,0.97,0)

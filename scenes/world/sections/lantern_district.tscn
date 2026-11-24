@@ -140,6 +140,50 @@ size = Vector3(5.9834265182592725, 1.23, 0.14)
 [sub_resource type="BoxShape3D" id="RailR4Shape"]
 size = Vector3(5.9834265182592725, 1.23, 0.14)
 
+[sub_resource type="StandardMaterial3D" id="ParcelCedar"]
+albedo_color = Color(0.24,0.10,0.058,1)
+roughness = 0.77
+
+[sub_resource type="StandardMaterial3D" id="ParcelBand"]
+albedo_color = Color(0.52,0.34,0.18,1)
+metallic = 0.45
+roughness = 0.47
+
+[sub_resource type="BoxMesh" id="TeaChest0Mesh"]
+size = Vector3(2.1, 0.95, 1.49)
+material = SubResource("ParcelCedar")
+
+[sub_resource type="BoxMesh" id="Binding0_0Mesh"]
+size = Vector3(0.064, 0.97, 1.53)
+material = SubResource("ParcelBand")
+
+[sub_resource type="BoxMesh" id="Binding0_1Mesh"]
+size = Vector3(0.064, 0.97, 1.53)
+material = SubResource("ParcelBand")
+
+[sub_resource type="BoxMesh" id="Lip0Mesh"]
+size = Vector3(2.14, 0.07, 1.53)
+material = SubResource("ParcelBand")
+
+[sub_resource type="BoxMesh" id="TeaChest1Mesh"]
+size = Vector3(2.1, 0.95, 1.49)
+material = SubResource("ParcelCedar")
+
+[sub_resource type="BoxMesh" id="Binding1_0Mesh"]
+size = Vector3(0.064, 0.97, 1.53)
+material = SubResource("ParcelBand")
+
+[sub_resource type="BoxMesh" id="Binding1_1Mesh"]
+size = Vector3(0.064, 0.97, 1.53)
+material = SubResource("ParcelBand")
+
+[sub_resource type="BoxMesh" id="Lip1Mesh"]
+size = Vector3(2.14, 0.07, 1.53)
+material = SubResource("ParcelBand")
+
+[sub_resource type="BoxShape3D" id="TeaFreightShape"]
+size = Vector3(2.14,1.97,1.53)
+
 [node name="LanternDistrict" type="Node3D"]
 
 [node name="BellHouse" type="MeshInstance3D" parent="."]
@@ -2083,3 +2127,42 @@ scale = Vector3(1, 1, 1)
 position = Vector3(0, 0, 0)
 shape = SubResource("LandingDeckShape")
 
+
+[node name="TeaFreight" type="StaticBody3D" parent="."]
+position = Vector3(15,0,23.1)
+
+[node name="TeaChest0" type="MeshInstance3D" parent="TeaFreight"]
+position = Vector3(0, 0.48, 0)
+mesh = SubResource("TeaChest0Mesh")
+
+[node name="Binding0_0" type="MeshInstance3D" parent="TeaFreight"]
+position = Vector3(-0.76, 0.48, 0)
+mesh = SubResource("Binding0_0Mesh")
+
+[node name="Binding0_1" type="MeshInstance3D" parent="TeaFreight"]
+position = Vector3(0.76, 0.48, 0)
+mesh = SubResource("Binding0_1Mesh")
+
+[node name="Lip0" type="MeshInstance3D" parent="TeaFreight"]
+position = Vector3(0, 0.9299999999999999, 0)
+mesh = SubResource("Lip0Mesh")
+
+[node name="TeaChest1" type="MeshInstance3D" parent="TeaFreight"]
+position = Vector3(0, 1.46, 0)
+mesh = SubResource("TeaChest1Mesh")
+
+[node name="Binding1_0" type="MeshInstance3D" parent="TeaFreight"]
+position = Vector3(-0.76, 1.46, 0)
+mesh = SubResource("Binding1_0Mesh")
+
+[node name="Binding1_1" type="MeshInstance3D" parent="TeaFreight"]
+position = Vector3(0.76, 1.46, 0)
+mesh = SubResource("Binding1_1Mesh")
+
+[node name="Lip1" type="MeshInstance3D" parent="TeaFreight"]
+position = Vector3(0, 1.91, 0)
+mesh = SubResource("Lip1Mesh")
+
+[node name="Collision" type="CollisionShape3D" parent="TeaFreight"]
+position = Vector3(0,0.985,0)
+shape = SubResource("TeaFreightShape")

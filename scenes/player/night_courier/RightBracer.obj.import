@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://7uje3ovcyaft"
+path="res://.godot/imported/RightBracer.obj-9c56e376953e8e5e78aab8fadcf7f45c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/RightBracer.obj-9c56e376953e8e5e78aab8fadcf7f45c.mesh"]
+
+source_file="res://scenes/player/night_courier/RightBracer.obj"
+dest_files=["res://.godot/imported/RightBracer.obj-9c56e376953e8e5e78aab8fadcf7f45c.mesh", "res://.godot/imported/RightBracer.obj-9c56e376953e8e5e78aab8fadcf7f45c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

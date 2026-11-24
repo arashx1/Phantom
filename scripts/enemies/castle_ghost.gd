@@ -2,6 +2,10 @@ extends Node3D
 
 enum State { PATROL, CHASE, SEARCH }
 @export var patrol_offset := Vector3(8, 0, 0)
+@export var bell_keeper := false
+var bell: AudioStreamPlayer3D
+var bell_hint: Label
+var sound_cooldown := 0.0
 var state := State.PATROL
 var home: Vector3
 var destination: Vector3
@@ -14,6 +18,16 @@ var phase := 0.0
 @onready var player: CharacterBody3D = get_parent().get_node("Player")
 
 func _ready() -> void:
+	if bell_keeper:
+		bell = AudioStreamPlayer3D.new()
+		bell.stream = preload("res://assets/audio/keeper_bell.wav")
+		bell.unit_size = 12.0
+		bell.max_distance = 36.0
+		add_child(bell)
+		bell_hint = Label.new()
+		bell_hint.position = Vector2(20, 88)
+		bell_hint.add_theme_constant_override("outline_size", 5)
+		player.get_node("HUD").add_child(bell_hint)
 	home = global_position
 	destination = home + patrol_offset
 	phase = fmod(home.length(), TAU)
@@ -28,10 +42,27 @@ func _physics_process(delta: float) -> void:
 		return
 	var target := player.global_position + player.up_direction * 1.2
 	var distance := global_position.distance_to(target)
+	sound_cooldown = maxf(0.0, sound_cooldown - delta)
+	if bell_keeper and sound_cooldown == 0:
+		bell_hint.text = ""
 	sight_timer -= delta
 	if sight_timer <= 0.0:
 		sight_timer = 0.16
-		sees_player = distance < (27.0 if state == State.CHASE else 17.0) and clear_sight(target)
+		var sight_range := 17.0
+		if bell_keeper:
+			sight_range = 6.0
+		if state == State.CHASE:
+			sight_range = 27.0
+		sees_player = distance < sight_range and clear_sight(target)
+		if bell_keeper and not sees_player and distance < 26.0 and sound_cooldown == 0:
+			var foot_speed := player.get_real_velocity().slide(player.up_direction).length()
+			if player.is_on_floor() and foot_speed > 6.2:
+				bell.play()
+				bell_hint.text = "The bell answered your footsteps."
+				sound_cooldown = 2.6
+				state = State.SEARCH
+				destination = target
+				search_time = 4.5
 	if sees_player:
 		last_seen = target
 		state = State.CHASE

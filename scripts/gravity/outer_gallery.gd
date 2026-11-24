@@ -41,6 +41,7 @@ func _ready() -> void:
 	var shader := Shader.new()
 	shader.code = """shader_type spatial;
 	render_mode cull_disabled;
+	uniform sampler2D skyline : source_color, filter_linear_mipmap, repeat_enable;
 	varying vec3 pos;
 	void vertex(){pos=VERTEX;}
 	void fragment(){
@@ -51,10 +52,16 @@ func _ready() -> void:
 		float window=step(.21,bay.x)*step(bay.x,.77)*step(.31,bay.y)*step(bay.y,.73);
 		window*=step(.08,fract(bay.x*12.))*step(.1,fract(bay.y*8.));
 		ALBEDO=mix(vec3(.22,.13,.084),vec3(.067,.038,.025),min(beam,1.));
-		EMISSION=vec3(.65,.25,.065)*window;
+		vec3 direction=normalize(pos-vec3(0.,0.,-28.));
+		vec2 sphere_uv=vec2(atan(direction.z,direction.x)/6.2831853+.5,.5-asin(clamp(direction.y,-1.,1.))/3.14159);
+		vec3 distant=texture(skyline,sphere_uv).rgb;
+		float vista=smoothstep(13.,52.,length(VERTEX));
+		ALBEDO*=1.-vista;
+		EMISSION=mix(vec3(.65,.25,.065)*window,distant,vista);
 	}"""
 	var material := ShaderMaterial.new()
 	material.shader = shader
+	material.set_shader_parameter("skyline", preload("res://scenes/world/sections/midnight_castle.webp"))
 	surface.set_material(material)
 	for row in ROWS:
 		for col in SEGMENTS:

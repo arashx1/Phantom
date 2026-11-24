@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b8dmcvjcrnvmt"
+path="res://.godot/imported/ScarfWrap.obj-7d27b20c37fb14396af103b87a3bb8ef.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ScarfWrap.obj-7d27b20c37fb14396af103b87a3bb8ef.mesh"]
+
+source_file="res://scenes/player/night_courier/ScarfWrap.obj"
+dest_files=["res://.godot/imported/ScarfWrap.obj-7d27b20c37fb14396af103b87a3bb8ef.mesh", "res://.godot/imported/ScarfWrap.obj-7d27b20c37fb14396af103b87a3bb8ef.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

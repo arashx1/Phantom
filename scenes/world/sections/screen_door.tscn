@@ -62,6 +62,8 @@ sync_to_physics = false
 
 [node name="Face" type="MeshInstance3D" parent="Left"]
 mesh = ExtResource("leaf")
+visibility_range_end = 75.0
+visibility_range_end_margin = 6.0
 
 [node name="Solid" type="CollisionShape3D" parent="Left"]
 shape = SubResource("Panel")
@@ -73,6 +75,8 @@ sync_to_physics = false
 [node name="Face" type="MeshInstance3D" parent="Right"]
 rotation_degrees = Vector3(0,180,0)
 mesh = ExtResource("leaf")
+visibility_range_end = 75.0
+visibility_range_end_margin = 6.0
 
 [node name="Solid" type="CollisionShape3D" parent="Right"]
 shape = SubResource("Panel")
@@ -88,9 +92,13 @@ shape = SubResource("Approach")
 [node name="PorchLight" type="MeshInstance3D" parent="."]
 position = Vector3(1.56,3.34,0.34)
 mesh = SubResource("Glass")
+visibility_range_end = 75.0
+visibility_range_end_margin = 6.0
 
 [node name="CrestedValance" type="MeshInstance3D" parent="."]
 mesh = SubResource("Valance")
+visibility_range_end = 75.0
+visibility_range_end_margin = 6.0
 position = Vector3(0,3.55,0.27)
 
 [node name="Interior" parent="." instance=ExtResource("room")]
